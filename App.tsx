@@ -1,5 +1,4 @@
-
-import React, { useState, useCallback } from 'react';
+import { useState, useCallback } from 'react';
 import SnakeCanvas from './components/SnakeCanvas';
 import Modal from './components/Modal';
 import Hero from './components/Hero';
@@ -57,7 +56,6 @@ function App() {
     <div className="relative w-full h-screen bg-stone-50 overflow-hidden">
       {/* Background/Game Layer */}
       <SnakeCanvas 
-        isPlaying={true} 
         isPaused={!!currentSection || isMenuOpen} 
         onEat={handleEat}
         onInteractionStart={handleInteractionStart}

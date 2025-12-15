@@ -1,10 +1,8 @@
-
 import React, { useEffect, useRef } from 'react';
 import { Direction, Point } from '../types';
 import { GAME_CONFIG } from '../constants';
 
 interface SnakeCanvasProps {
-  isPlaying: boolean;
   onEat: () => void;
   onInteractionStart: () => void;
   onMenuHit: () => void;
@@ -12,7 +10,7 @@ interface SnakeCanvasProps {
   resetKey: number;
 }
 
-const SnakeCanvas: React.FC<SnakeCanvasProps> = ({ isPlaying, onEat, onInteractionStart, onMenuHit, isPaused, resetKey }) => {
+const SnakeCanvas: React.FC<SnakeCanvasProps> = ({ onEat, onInteractionStart, onMenuHit, isPaused, resetKey }) => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   
   // Game State Refs
@@ -57,7 +55,7 @@ const SnakeCanvas: React.FC<SnakeCanvasProps> = ({ isPlaying, onEat, onInteracti
     }
   };
 
-  const updateMenuPosition = (width: number, height: number) => {
+  const updateMenuPosition = (width: number) => {
     // Top right corner with padding
     menuPositionRef.current = { x: width - 50, y: 50 };
   };
@@ -106,7 +104,7 @@ const SnakeCanvas: React.FC<SnakeCanvasProps> = ({ isPlaying, onEat, onInteracti
     directionRef.current = null;
     directionQueueRef.current = [];
     
-    updateMenuPosition(width, height);
+    updateMenuPosition(width);
     spawnFood(width, height);
   };
 
@@ -146,7 +144,7 @@ const SnakeCanvas: React.FC<SnakeCanvasProps> = ({ isPlaying, onEat, onInteracti
         initGame(w, h);
       } else {
         // If resized, ensure menu and food are updated
-        updateMenuPosition(w, h);
+        updateMenuPosition(w);
         if (foodRef.current.x > w || foodRef.current.y > h) {
           spawnFood(w, h);
         }

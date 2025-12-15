@@ -1,4 +1,3 @@
-import React from 'react';
 import { SectionContent, Language } from './types';
 
 export const GAME_CONFIG = {
