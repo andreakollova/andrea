@@ -161,8 +161,8 @@ export const getPortfolioSections = (lang: Language): SectionContent[] => {
             {isEn ? "Let’s work together." : "Poďme spolupracovať."}
           </p>
           <div className="flex flex-col space-y-4 items-start">
-            <a href="mailto:ahoj@andreakollova.sk" className="text-lg text-stone-500 hover:text-stone-800 transition-colors border-b border-transparent hover:border-stone-800 pb-1">
-              ahoj@andreakollova.sk
+            <a href="mailto:kollova@drixton.com" className="text-lg text-stone-500 hover:text-stone-800 transition-colors border-b border-transparent hover:border-stone-800 pb-1">
+              kollova@drixton.com
             </a>
             <div className="pt-4 flex items-center gap-3">
                <span className="relative flex h-3 w-3">
