@@ -233,7 +233,7 @@ const SnakeCanvas: React.FC<SnakeCanvasProps> = ({ onEat, onInteractionStart, on
       const tx = touch.clientX;
       const ty = touch.clientY;
 
-      // Switch icon + label — always accessible, preventDefault only here
+      // Switch — always works regardless of pause state
       const { x: swx, y: swy } = switchPositionRef.current;
       if (tx >= swx - 25 && tx <= swx + 170 && ty >= swy - 25 && ty <= swy + 25) {
         if (e.cancelable) e.preventDefault();
@@ -241,7 +241,11 @@ const SnakeCanvas: React.FC<SnakeCanvasProps> = ({ onEat, onInteractionStart, on
         return;
       }
 
-      // Menu icon — always accessible
+      // When paused (menu/modal open): let React handle everything else
+      // (X button, nav items, modal close — all rely on React onClick)
+      if (isPaused) return;
+
+      // Menu icon — only when game is running (not when menu already open)
       const dxMenu = tx - menuPositionRef.current.x;
       const dyMenu = ty - menuPositionRef.current.y;
       if (Math.sqrt(dxMenu * dxMenu + dyMenu * dyMenu) < 50) {
@@ -250,10 +254,6 @@ const SnakeCanvas: React.FC<SnakeCanvasProps> = ({ onEat, onInteractionStart, on
         onMenuHit();
         return;
       }
-
-      // When paused (modal/nav open) — do NOT preventDefault so React
-      // UI elements (X button, menu items, etc.) receive their events
-      if (isPaused) return;
 
       // Game input — prevent scroll/zoom
       if (e.cancelable) e.preventDefault();
