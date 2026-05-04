@@ -1,4 +1,4 @@
-import { useState, useCallback } from 'react';
+import { useState, useCallback, useEffect } from 'react';
 import SnakeCanvas from './components/SnakeCanvas';
 import Modal from './components/Modal';
 import Hero from './components/Hero';
@@ -14,6 +14,11 @@ function App() {
   const [resetKey, setResetKey] = useState(0);
   const [language, setLanguage] = useState<Language>('en');
   const [isDark, setIsDark] = useState(false);
+
+  useEffect(() => {
+    const meta = document.querySelector('meta[name="theme-color"]');
+    if (meta) meta.setAttribute('content', isDark ? '#151414' : '#fafaf9');
+  }, [isDark]);
 
   const handleToggleDark = useCallback(() => {
     setIsDark(prev => !prev);

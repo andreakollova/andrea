@@ -444,7 +444,7 @@ const SnakeCanvas: React.FC<SnakeCanvasProps> = ({ onEat, onInteractionStart, on
         context.font = '10px Inter, sans-serif';
         context.fillStyle = colorDim;
         context.textAlign = 'left';
-        context.fillText('HIT TO SWITCH', sx + 25, sy + 4);
+        context.fillText('HIT TO SWAP', sx + 25, sy + 4);
       }
 
       // Draw Snake

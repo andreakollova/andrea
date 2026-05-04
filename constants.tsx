@@ -56,30 +56,43 @@ export const getPortfolioSections = (lang: Language, isDark: boolean) => {
       id: 'skills',
       title: isEn ? 'Skills' : 'Zručnosti',
       type: 'skills',
-      content: (
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 font-light">
-          <div>
-            <h3 className={`uppercase tracking-widest text-sm mb-4 ${isDark ? 'text-stone-400' : 'text-stone-500'}`}>Frontend</h3>
-            <ul className={`space-y-2 text-lg ${isDark ? 'text-stone-200' : 'text-stone-700'}`}>
-              <li>HTML5 & CSS3</li>
-              <li>TypeScript / JavaScript</li>
-              <li>React & Next.js</li>
-              <li>Tailwind CSS</li>
-            </ul>
+      content: (() => {
+        const iconClass = `w-5 h-5 flex-shrink-0 grayscale ${isDark ? 'invert opacity-70' : 'opacity-50'}`;
+        const skillItems: [string, string][][] = [
+          [
+            ['HTML5 & CSS3',         'https://cdn.simpleicons.org/html5'],
+            ['TypeScript / JavaScript', 'https://cdn.simpleicons.org/typescript'],
+            ['React & Next.js',      'https://cdn.simpleicons.org/react'],
+            ['Tailwind CSS',         'https://cdn.simpleicons.org/tailwindcss'],
+          ],
+          [
+            ['Node.js & Express',    'https://cdn.simpleicons.org/nodedotjs'],
+            ['Python & Flask',       'https://cdn.simpleicons.org/python'],
+            ['PostgreSQL',           'https://cdn.simpleicons.org/postgresql'],
+            ['DBeaver',              'https://cdn.simpleicons.org/dbeaver'],
+          ],
+        ];
+        const headings = ['Frontend', isEn ? 'Backend & Tools' : 'Backend a nástroje'];
+        return (
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 font-light">
+            {skillItems.map((group, gi) => (
+              <div key={gi}>
+                <h3 className={`uppercase tracking-widest text-sm mb-4 ${isDark ? 'text-stone-400' : 'text-stone-500'}`}>
+                  {headings[gi]}
+                </h3>
+                <ul className={`space-y-3 text-lg ${isDark ? 'text-stone-200' : 'text-stone-700'}`}>
+                  {group.map(([label, icon]) => (
+                    <li key={label} className="flex items-center gap-3">
+                      <img src={icon} alt={label} className={iconClass} />
+                      {label}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
           </div>
-          <div>
-            <h3 className={`uppercase tracking-widest text-sm mb-4 ${isDark ? 'text-stone-400' : 'text-stone-500'}`}>
-              {isEn ? "Backend & Tools" : "Backend a nástroje"}
-            </h3>
-            <ul className={`space-y-2 text-lg ${isDark ? 'text-stone-200' : 'text-stone-700'}`}>
-              <li>Node.js & Express</li>
-              <li>Python & Flask</li>
-              <li>PostgreSQL</li>
-              <li>DBeaver</li>
-            </ul>
-          </div>
-        </div>
-      ),
+        );
+      })(),
     },
     {
       id: 'work',
