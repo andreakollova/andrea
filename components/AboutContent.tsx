@@ -46,7 +46,7 @@ const AboutContent = ({ isEn, isDark }: AboutContentProps) => {
             <p className={`text-xs tracking-widest uppercase mb-2 ${isDark ? 'text-stone-400' : 'text-stone-400'}`}>
               {isEn ? 'Athlete Background' : 'Športová kariéra'}
             </p>
-            <p className={`text-base font-light italic ${isDark ? 'text-stone-200' : 'text-stone-700'}`}>
+            <p className={`text-xs md:text-base font-light italic ${isDark ? 'text-stone-200' : 'text-stone-700'}`}>
               {isEn
                 ? "During my studies, I actively competed at the international level as part of the Slovak national hockey team."
                 : "Počas štúdia som aktívne súťažila na medzinárodnej úrovni ako členka slovenského národného hokejového tímu."}
