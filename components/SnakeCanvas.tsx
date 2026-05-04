@@ -227,30 +227,36 @@ const SnakeCanvas: React.FC<SnakeCanvasProps> = ({ onEat, onInteractionStart, on
     };
 
     const handleTouchStart = (e: TouchEvent) => {
-      if (e.cancelable) e.preventDefault();
       const touch = e.touches[0];
       const tx = touch.clientX;
       const ty = touch.clientY;
 
-      // Switch toggle works even when paused (dark mode always accessible)
+      // Switch icon + label — always accessible, preventDefault only here
       const { x: swx, y: swy } = switchPositionRef.current;
       if (tx >= swx - 25 && tx <= swx + 170 && ty >= swy - 25 && ty <= swy + 25) {
+        if (e.cancelable) e.preventDefault();
         onToggleDark();
         return;
       }
 
-      // Menu open works even when paused (e.g. navigating from section)
+      // Menu icon — always accessible
       const dxMenu = tx - menuPositionRef.current.x;
       const dyMenu = ty - menuPositionRef.current.y;
       if (Math.sqrt(dxMenu * dxMenu + dyMenu * dyMenu) < 50) {
+        if (e.cancelable) e.preventDefault();
         if (!directionRef.current) onInteractionStart();
         onMenuHit();
         return;
       }
 
+      // When paused (modal/nav open) — do NOT preventDefault so React
+      // UI elements (X button, menu items, etc.) receive their events
       if (isPaused) return;
 
-      // Tap on food → trigger eat
+      // Game input — prevent scroll/zoom
+      if (e.cancelable) e.preventDefault();
+
+      // Tap on food
       const dxFood = tx - foodRef.current.x;
       const dyFood = ty - foodRef.current.y;
       if (Math.sqrt(dxFood * dxFood + dyFood * dyFood) < 24) {
