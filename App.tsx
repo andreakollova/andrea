@@ -53,7 +53,7 @@ function App() {
   }, [language]);
 
   return (
-    <div className="relative w-full h-screen bg-stone-50 overflow-hidden">
+    <div className="relative w-full h-screen bg-stone-50 overflow-hidden cursor-default">
       {/* Background/Game Layer */}
       <SnakeCanvas 
         isPaused={!!currentSection || isMenuOpen} 
