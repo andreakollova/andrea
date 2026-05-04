@@ -228,10 +228,38 @@ const SnakeCanvas: React.FC<SnakeCanvasProps> = ({ onEat, onInteractionStart, on
 
     const handleTouchStart = (e: TouchEvent) => {
       if (isPaused) return;
-      // Prevent default to avoid scrolling/zooming and mouse event emulation
-      if (e.cancelable) e.preventDefault(); 
+      if (e.cancelable) e.preventDefault();
       const touch = e.touches[0];
-      handlePointerInput(touch.clientX, touch.clientY);
+      const tx = touch.clientX;
+      const ty = touch.clientY;
+
+      // Tap on food → trigger eat
+      const dxFood = tx - foodRef.current.x;
+      const dyFood = ty - foodRef.current.y;
+      if (Math.sqrt(dxFood * dxFood + dyFood * dyFood) < 24) {
+        if (!directionRef.current) onInteractionStart();
+        onEat();
+        spawnFood(canvasSizeRef.current.w, canvasSizeRef.current.h);
+        return;
+      }
+
+      // Tap on menu icon
+      const dxMenu = tx - menuPositionRef.current.x;
+      const dyMenu = ty - menuPositionRef.current.y;
+      if (Math.sqrt(dxMenu * dxMenu + dyMenu * dyMenu) < 40) {
+        if (!directionRef.current) onInteractionStart();
+        onMenuHit();
+        return;
+      }
+
+      // Tap on switch icon or label → toggle dark mode
+      const { x: swx, y: swy } = switchPositionRef.current;
+      if (tx >= swx - 20 && tx <= swx + 160 && ty >= swy - 20 && ty <= swy + 20) {
+        onToggleDark();
+        return;
+      }
+
+      handlePointerInput(tx, ty);
     };
 
     const handleMouseDown = (e: MouseEvent) => {
