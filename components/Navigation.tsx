@@ -41,7 +41,7 @@ const Navigation: React.FC<NavigationProps> = ({ onSelectSection, isOpen, onClos
             href="https://www.drixton.com/"
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center justify-center gap-3 mb-2 opacity-40 hover:opacity-100 transition-opacity"
+            className="flex items-center justify-center gap-3 mb-2 transition-opacity hover:opacity-70"
           >
             <img
               src={isDark ? "https://www.drixton.com/static/logo-keyboard-white.png" : "https://www.drixton.com/static/logo-keyboard.png"}
