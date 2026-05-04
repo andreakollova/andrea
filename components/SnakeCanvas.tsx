@@ -65,33 +65,48 @@ const SnakeCanvas: React.FC<SnakeCanvasProps> = ({ onEat, onInteractionStart, on
 
   const spawnFood = (width: number, height: number) => {
     const margin = 50;
-    // Ensure we have positive dimensions
     const safeWidth = Math.max(width - margin * 2, 10);
     const safeHeight = Math.max(height - margin * 2, 10);
-    
-    let placed = false;
-    let attempts = 0;
-    
-    // Try to place food 20 times, if fail, just place it safely
-    while (!placed && attempts < 20) {
-      const x = margin + Math.random() * safeWidth;
-      const y = margin + Math.random() * safeHeight;
-      
-      // Avoid spawning too close to menu
+
+    const isBlocked = (x: number, y: number): boolean => {
+      // Menu icon + "HIT TO OPEN" text (top right)
       const menu = menuPositionRef.current;
       const distToMenu = Math.sqrt(Math.pow(x - menu.x, 2) + Math.pow(y - menu.y, 2));
-      
-      if (distToMenu >= 120) {
+      if (distToMenu < 150) return true;
+
+      // Switch icon + "HIT TO SWITCH" text (top left)
+      const sw = switchPositionRef.current;
+      if (x >= sw.x - 25 && x <= sw.x + 170 && y >= sw.y - 25 && y <= sw.y + 25) return true;
+
+      // Hero text block (centered, middle of screen)
+      const heroHalfW = Math.min(width * 0.38, 340);
+      if (Math.abs(x - width / 2) < heroHalfW && Math.abs(y - height / 2) < 120) return true;
+
+      // Bottom hint text ("MOVE THE SNAKE TO EXPLORE")
+      if (y > height - 90) return true;
+
+      return false;
+    };
+
+    for (let attempts = 0; attempts < 50; attempts++) {
+      const x = margin + Math.random() * safeWidth;
+      const y = margin + Math.random() * safeHeight;
+      if (!isBlocked(x, y)) {
         foodRef.current = { x, y };
-        placed = true;
+        return;
       }
-      attempts++;
     }
 
-    // Fallback: if we couldn't place it randomly, place it in upper center
-    if (!placed) {
-       foodRef.current = { x: width / 2, y: height / 3 };
+    // Fallback: pick first safe candidate
+    const fallbacks = [
+      { x: width * 0.15, y: height * 0.35 },
+      { x: width * 0.85, y: height * 0.65 },
+      { x: width * 0.5,  y: height * 0.15 },
+    ];
+    for (const pos of fallbacks) {
+      if (!isBlocked(pos.x, pos.y)) { foodRef.current = pos; return; }
     }
+    foodRef.current = { x: width * 0.15, y: height * 0.35 };
   };
 
   const initGame = (width: number, height: number) => {
