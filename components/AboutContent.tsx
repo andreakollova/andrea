@@ -10,14 +10,14 @@ const AboutContent = ({ isEn, isDark }: AboutContentProps) => {
   const [showFunFact, setShowFunFact] = useState(false);
   return (
     <div className="space-y-6">
-      <p className="text-xl md:text-2xl font-light leading-relaxed">
+      <p className={`text-xl md:text-2xl font-light leading-relaxed ${isDark ? 'text-stone-100' : 'text-stone-800'}`}>
         {isEn
           ? "I’m Andrea Kollová, a full-stack developer specializing in modern web application development (frontend, backend)."
           : "Som Andrea Kollová, full-stack developerka špecializovaná na vývoj moderných webových aplikácií (frontend, backend)."}
       </p>
       <p className={`text-base font-light leading-relaxed ${isDark ? 'text-stone-300' : 'text-stone-500'}`}>
         {isEn
-          ? "My approach to development is rooted in the belief that clean code is just as important as clean design. I strive to make every digital interaction feel intentional and seamless."
+          ? "I care about clean architecture, readable code, and thoughtful UI – because a solid backend with a confusing frontend (or the other way around) just doesn't cut it. I build systems that are reliable, scalable, and easy to use – where everything just works, without the user needing to think twice."
           : "Môj prístup k vývoju vychádza z presvedčenia, že čistý kód je rovnako dôležitý ako čistý dizajn. Snažím sa aby každá digitálna interakcia bola zámerná a plynulá."}
       </p>
       <button
