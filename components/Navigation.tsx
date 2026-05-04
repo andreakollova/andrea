@@ -14,7 +14,7 @@ interface NavigationProps {
 }
 
 const Navigation: React.FC<NavigationProps> = ({ onSelectSection, isOpen, onClose, language, setLanguage, isDark }) => {
-  const sections = getPortfolioSections(language);
+  const sections = getPortfolioSections(language, isDark);
 
   const handleLinkClick = (id: string) => {
     onSelectSection(id);
@@ -44,7 +44,7 @@ const Navigation: React.FC<NavigationProps> = ({ onSelectSection, isOpen, onClos
             className="flex items-center justify-center gap-3 mb-2 opacity-40 hover:opacity-100 transition-opacity"
           >
             <img
-              src="https://www.drixton.com/static/logo-keyboard.png"
+              src={isDark ? "https://www.drixton.com/static/logo-keyboard-white.png" : "https://www.drixton.com/static/logo-keyboard.png"}
               alt="Drixton"
               className="h-5 w-auto"
             />
