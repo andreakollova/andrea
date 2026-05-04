@@ -29,7 +29,7 @@ const Hero: React.FC<HeroProps> = ({ hasStarted, language, isDark }) => {
         <h1 className={`text-6xl md:text-8xl font-thin tracking-tight whitespace-nowrap ${isDark ? 'text-stone-100' : 'text-stone-900'}`}>
           {t.heroTitle}
         </h1>
-        <p className="text-xs sm:text-base md:text-2xl font-light tracking-[0.2em] text-stone-400 uppercase ml-1">
+        <p className={`text-xs sm:text-base md:text-2xl font-light tracking-[0.2em] uppercase ml-1 ${isDark ? 'text-stone-400' : 'text-stone-500'}`}>
           {t.heroSubtitle}
         </p>
       </div>
@@ -39,12 +39,12 @@ const Hero: React.FC<HeroProps> = ({ hasStarted, language, isDark }) => {
         className={`absolute bottom-6 flex flex-col items-center gap-2 transition-opacity duration-700 ${showHint && !hasStarted ? 'opacity-100' : 'opacity-0'}`}
       >
         {/* Desktop hint */}
-        <div className="hidden md:flex items-center gap-2 text-stone-400 animate-pulse">
+        <div className={`hidden md:flex items-center gap-2 animate-pulse ${isDark ? 'text-stone-400' : 'text-stone-500'}`}>
           <Keyboard size={14} strokeWidth={1.5} />
           <p className="text-xs font-light tracking-widest uppercase">{t.heroDesktop}</p>
         </div>
         {/* Mobile hint — tap/touch ripple icon */}
-        <div className="flex md:hidden items-center gap-2 text-stone-400 animate-pulse">
+        <div className={`flex md:hidden items-center gap-2 animate-pulse ${isDark ? 'text-stone-400' : 'text-stone-500'}`}>
           <svg width="14" height="14" viewBox="0 0 18 18" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round">
             <circle cx="9" cy="9" r="2.5" fill="currentColor" stroke="none"/>
             <circle cx="9" cy="9" r="5.5"/>

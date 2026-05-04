@@ -5,8 +5,8 @@ export const GAME_CONFIG = {
   speed: 4, // Movement speed
   segmentSize: 12, // Visual thickness
   gridSize: 20, // Logical grid for turning
-  colorSnake: '#a8a29e', // stone-400
-  colorFood: '#78716c', // stone-500
+  colorSnake: '#959090', // stone-400
+  colorFood:  '#6e6762', // stone-500
   colorBackground: '#fafaf9', // stone-50
 };
 
@@ -59,7 +59,7 @@ export const getPortfolioSections = (lang: Language, isDark: boolean) => {
       content: (
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 font-light">
           <div>
-            <h3 className="text-stone-400 uppercase tracking-widest text-sm mb-4">Frontend</h3>
+            <h3 className={`uppercase tracking-widest text-sm mb-4 ${isDark ? 'text-stone-400' : 'text-stone-500'}`}>Frontend</h3>
             <ul className={`space-y-2 text-lg ${isDark ? 'text-stone-200' : 'text-stone-700'}`}>
               <li>HTML5 & CSS3</li>
               <li>TypeScript / JavaScript</li>
@@ -68,7 +68,7 @@ export const getPortfolioSections = (lang: Language, isDark: boolean) => {
             </ul>
           </div>
           <div>
-            <h3 className="text-stone-400 uppercase tracking-widest text-sm mb-4">
+            <h3 className={`uppercase tracking-widest text-sm mb-4 ${isDark ? 'text-stone-400' : 'text-stone-500'}`}>
               {isEn ? "Backend & Tools" : "Backend a nástroje"}
             </h3>
             <ul className={`space-y-2 text-lg ${isDark ? 'text-stone-200' : 'text-stone-700'}`}>
@@ -119,7 +119,7 @@ export const getPortfolioSections = (lang: Language, isDark: boolean) => {
         <div className={`space-y-10 border-l ${isDark ? 'border-[#2b2b2b]' : 'border-stone-200'} pl-6 md:pl-8 ml-2`}>
           <div className="relative">
             <span className={`absolute -left-[37px] md:-left-[41px] top-2 w-3 h-3 rounded-full ${isDark ? 'bg-[#3a3a3a]' : 'bg-stone-300'}`}></span>
-            <span className="block text-sm text-stone-400 tracking-widest mb-1">
+            <span className={`block text-sm tracking-widest mb-1 ${isDark ? 'text-stone-400' : 'text-stone-500'}`}>
               2022 — {isEn ? "PRESENT" : "SÚČASNOSŤ"}
             </span>
             <h3 className={`text-xl font-medium ${isDark ? 'text-stone-100' : 'text-stone-800'}`}>Full Stack Developer</h3>
@@ -127,7 +127,7 @@ export const getPortfolioSections = (lang: Language, isDark: boolean) => {
           </div>
           <div className="relative">
             <span className={`absolute -left-[37px] md:-left-[41px] top-2 w-3 h-3 rounded-full ${isDark ? 'bg-[#2b2b2b]' : 'bg-stone-200'}`}></span>
-            <span className="block text-sm text-stone-400 tracking-widest mb-1">
+            <span className={`block text-sm tracking-widest mb-1 ${isDark ? 'text-stone-400' : 'text-stone-500'}`}>
               2019 — {isEn ? "PRESENT" : "SÚČASNOSŤ"}
             </span>
             <h3 className={`text-xl font-medium ${isDark ? 'text-stone-100' : 'text-stone-800'}`}>Full Stack Developer</h3>
@@ -135,7 +135,7 @@ export const getPortfolioSections = (lang: Language, isDark: boolean) => {
           </div>
           <div className="relative">
             <span className={`absolute -left-[37px] md:-left-[41px] top-2 w-3 h-3 rounded-full ${isDark ? 'bg-[#2b2b2b]' : 'bg-stone-200'}`}></span>
-            <span className="block text-sm text-stone-400 tracking-widest mb-1">2017 — 2019</span>
+            <span className={`block text-sm tracking-widest mb-1 ${isDark ? 'text-stone-400' : 'text-stone-500'}`}>2017 — 2019</span>
             <h3 className={`text-xl font-medium ${isDark ? 'text-stone-100' : 'text-stone-800'}`}>Junior Developer</h3>
             <p className={`mt-1 ${isDark ? 'text-stone-400' : 'text-stone-500'}`}>Freelance</p>
           </div>
@@ -160,7 +160,7 @@ export const getPortfolioSections = (lang: Language, isDark: boolean) => {
                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
                  <span className="relative inline-flex rounded-full h-3 w-3 bg-green-500"></span>
                </span>
-              <span className="text-stone-400 uppercase text-sm tracking-widest">
+              <span className={`uppercase text-sm tracking-widest ${isDark ? 'text-stone-400' : 'text-stone-500'}`}>
                 {isEn ? "Available for work" : "Dostupná pre spoluprácu"}
               </span>
             </div>

@@ -17,7 +17,7 @@ const AboutContent = ({ isEn, isDark }: AboutContentProps) => {
           ? "I’m Andrea Kollová, a full-stack developer specializing in modern web application development (frontend, backend)."
           : "Som Andrea Kollová, full-stack developerka špecializovaná na vývoj moderných webových aplikácií (frontend, backend)."}
       </p>
-      <p className={`text-sm md:text-base font-light leading-relaxed ${isDark ? 'text-stone-300' : 'text-stone-500'}`}>
+      <p className={`text-sm md:text-base font-light leading-relaxed ${isDark ? 'text-stone-300' : 'text-stone-600'}`}>
         {isEn
           ? "I care about clean architecture, readable code, and thoughtful UI – because a solid backend with a confusing frontend (or the other way around) just doesn't cut it. I build systems that are reliable and scalable – where everything just works, without the user needing to think twice."
           : "Môj prístup k vývoju vychádza z presvedčenia, že čistý kód je rovnako dôležitý ako čistý dizajn. Snažím sa aby každá digitálna interakcia bola zámerná a plynulá."}
