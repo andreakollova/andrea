@@ -6,9 +6,10 @@ import { TRANSLATIONS } from '../constants';
 interface HeroProps {
   hasStarted: boolean;
   language: Language;
+  isDark: boolean;
 }
 
-const Hero: React.FC<HeroProps> = ({ hasStarted, language }) => {
+const Hero: React.FC<HeroProps> = ({ hasStarted, language, isDark }) => {
   const t = TRANSLATIONS[language];
 
   return (
@@ -18,7 +19,7 @@ const Hero: React.FC<HeroProps> = ({ hasStarted, language }) => {
       }`}
     >
       <div className="text-center space-y-4 px-4">
-        <h1 className="text-6xl md:text-8xl font-thin tracking-tight text-stone-900 whitespace-nowrap">
+        <h1 className={`text-6xl md:text-8xl font-thin tracking-tight whitespace-nowrap ${isDark ? 'text-stone-100' : 'text-stone-900'}`}>
           {t.heroTitle}
         </h1>
         <p className="text-xs sm:text-base md:text-2xl font-light tracking-[0.2em] text-stone-400 uppercase ml-1">

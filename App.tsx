@@ -13,6 +13,11 @@ function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [resetKey, setResetKey] = useState(0);
   const [language, setLanguage] = useState<Language>('en');
+  const [isDark, setIsDark] = useState(false);
+
+  const handleToggleDark = useCallback(() => {
+    setIsDark(prev => !prev);
+  }, []);
 
   const handleInteractionStart = useCallback(() => {
     if (!hasInteractionStarted) {
@@ -53,32 +58,36 @@ function App() {
   }, [language]);
 
   return (
-    <div className="relative w-full h-screen bg-stone-50 overflow-hidden cursor-default">
+    <div className={`relative w-full h-screen overflow-hidden cursor-default transition-colors duration-500 ${isDark ? 'bg-stone-900' : 'bg-stone-50'}`}>
       {/* Background/Game Layer */}
-      <SnakeCanvas 
-        isPaused={!!currentSection || isMenuOpen} 
+      <SnakeCanvas
+        isPaused={!!currentSection || isMenuOpen}
         onEat={handleEat}
         onInteractionStart={handleInteractionStart}
         onMenuHit={handleMenuHit}
+        onToggleDark={handleToggleDark}
+        isDark={isDark}
         resetKey={resetKey}
       />
-      
+
       {/* Hero Text Layer */}
-      <Hero hasStarted={hasInteractionStarted} language={language} />
-      
+      <Hero hasStarted={hasInteractionStarted} language={language} isDark={isDark} />
+
       {/* Navigation Layer */}
-      <Navigation 
-        isOpen={isMenuOpen} 
-        onClose={handleCloseMenu} 
-        onSelectSection={handleSelectSection} 
+      <Navigation
+        isOpen={isMenuOpen}
+        onClose={handleCloseMenu}
+        onSelectSection={handleSelectSection}
         language={language}
         setLanguage={setLanguage}
+        isDark={isDark}
       />
 
       {/* Content Modal Layer */}
-      <Modal 
-        section={currentSection} 
-        onClose={handleCloseModal} 
+      <Modal
+        section={currentSection}
+        onClose={handleCloseModal}
+        isDark={isDark}
       />
     </div>
   );

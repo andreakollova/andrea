@@ -104,9 +104,9 @@ export const getPortfolioSections = (lang: Language): SectionContent[] => {
             />
           </div>
           <div className="p-4">
-            <img 
-              src="https://cdn.shopify.com/s/files/1/0804/4226/1839/files/54325342.png?v=1764569599" 
-              alt="Drixton Studio" 
+            <img
+              src="https://www.drixton.com/static/logo-black.png"
+              alt="Drixton Studio"
               className="h-12 object-contain hover:opacity-100 transition-opacity"
             />
           </div>
@@ -140,7 +140,7 @@ export const getPortfolioSections = (lang: Language): SectionContent[] => {
               2019 — {isEn ? "PRESENT" : "SÚČASNOSŤ"}
             </span>
             <h3 className="text-xl font-medium text-stone-800">Full Stack Developer</h3>
-            <p className="text-stone-500 mt-1">DRIXTON Studio</p>
+            <p className="text-stone-500 mt-1">DRIXTON Studio (Co-founder)</p>
           </div>
           <div className="relative">
             <span className="absolute -left-[37px] md:-left-[41px] top-2 w-3 h-3 rounded-full bg-stone-200"></span>

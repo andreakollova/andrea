@@ -6,11 +6,13 @@ interface SnakeCanvasProps {
   onEat: () => void;
   onInteractionStart: () => void;
   onMenuHit: () => void;
+  onToggleDark: () => void;
   isPaused: boolean;
+  isDark: boolean;
   resetKey: number;
 }
 
-const SnakeCanvas: React.FC<SnakeCanvasProps> = ({ onEat, onInteractionStart, onMenuHit, isPaused, resetKey }) => {
+const SnakeCanvas: React.FC<SnakeCanvasProps> = ({ onEat, onInteractionStart, onMenuHit, onToggleDark, isPaused, isDark, resetKey }) => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   
   // Game State Refs
@@ -23,6 +25,7 @@ const SnakeCanvas: React.FC<SnakeCanvasProps> = ({ onEat, onInteractionStart, on
   const frameIdRef = useRef<number>(0);
   const canvasSizeRef = useRef<{ w: number; h: number }>({ w: 0, h: 0 });
   const menuPositionRef = useRef<Point>({ x: 0, y: 0 });
+  const switchPositionRef = useRef<Point>({ x: 0, y: 0 });
   
   // Helper to safely queue direction changes
   const queueDirection = (newDir: Direction) => {
@@ -56,8 +59,8 @@ const SnakeCanvas: React.FC<SnakeCanvasProps> = ({ onEat, onInteractionStart, on
   };
 
   const updateMenuPosition = (width: number) => {
-    // Top right corner with padding
     menuPositionRef.current = { x: width - 50, y: 50 };
+    switchPositionRef.current = { x: 50, y: 50 };
   };
 
   const spawnFood = (width: number, height: number) => {
@@ -239,6 +242,14 @@ const SnakeCanvas: React.FC<SnakeCanvasProps> = ({ onEat, onInteractionStart, on
         return;
       }
 
+      // Click on switch icon → toggle dark mode
+      const dxSwitch = cx - switchPositionRef.current.x;
+      const dySwitch = cy - switchPositionRef.current.y;
+      if (Math.sqrt(dxSwitch * dxSwitch + dySwitch * dySwitch) < 40) {
+        onToggleDark();
+        return;
+      }
+
       handlePointerInput(cx, cy);
     };
 
@@ -302,21 +313,30 @@ const SnakeCanvas: React.FC<SnakeCanvasProps> = ({ onEat, onInteractionStart, on
       if (Math.sqrt(dxMenu * dxMenu + dyMenu * dyMenu) < 40) {
         onMenuHit();
       }
+
+      // Collision with Switch
+      const dxSwitch = head.x - switchPositionRef.current.x;
+      const dySwitch = head.y - switchPositionRef.current.y;
+      if (Math.sqrt(dxSwitch * dxSwitch + dySwitch * dySwitch) < 40) {
+        onToggleDark();
+      }
     };
 
     const draw = (context: CanvasRenderingContext2D) => {
       const { w, h } = canvasSizeRef.current;
-      
+      const color = isDark ? '#78716c' : '#a8a29e';
+      const colorDim = isDark ? '#57534e' : '#c4bdb8';
+
       context.clearRect(0, 0, w, h);
 
-      // Draw Menu Target
+      // Draw Menu Target (top right)
       const mx = menuPositionRef.current.x;
       const my = menuPositionRef.current.y;
-      
-      context.strokeStyle = '#a8a29e'; 
+
+      context.strokeStyle = color;
       context.lineWidth = 2;
       context.lineCap = 'round';
-      
+
       context.beginPath();
       context.moveTo(mx - 12, my - 7);
       context.lineTo(mx + 12, my - 7);
@@ -327,16 +347,38 @@ const SnakeCanvas: React.FC<SnakeCanvasProps> = ({ onEat, onInteractionStart, on
       context.stroke();
 
       if (directionRef.current) {
-          context.font = '10px Inter, sans-serif';
-          context.fillStyle = '#a8a29e'; 
-          context.textAlign = 'right';
-          context.fillText('HIT TO OPEN', mx - 25, my + 4);
+        context.font = '10px Inter, sans-serif';
+        context.fillStyle = colorDim;
+        context.textAlign = 'right';
+        context.fillText('HIT TO OPEN', mx - 25, my + 4);
+      }
+
+      // Draw Switch Target (top left)
+      const sx = switchPositionRef.current.x;
+      const sy = switchPositionRef.current.y;
+
+      context.strokeStyle = color;
+      context.lineWidth = 2;
+      context.beginPath();
+      context.arc(sx, sy, 9, 0, Math.PI * 2);
+      context.stroke();
+      // dot inside
+      context.beginPath();
+      context.fillStyle = color;
+      context.arc(sx, sy, 3, 0, Math.PI * 2);
+      context.fill();
+
+      if (directionRef.current) {
+        context.font = '10px Inter, sans-serif';
+        context.fillStyle = colorDim;
+        context.textAlign = 'left';
+        context.fillText('HIT TO SWITCH', sx + 25, sy + 4);
       }
 
       // Draw Snake
       context.beginPath();
       context.lineWidth = GAME_CONFIG.segmentSize;
-      context.strokeStyle = GAME_CONFIG.colorSnake;
+      context.strokeStyle = isDark ? '#57534e' : GAME_CONFIG.colorSnake;
 
       if (snakeRef.current.length > 1) {
         context.moveTo(snakeRef.current[0].x, snakeRef.current[0].y);
@@ -356,14 +398,15 @@ const SnakeCanvas: React.FC<SnakeCanvasProps> = ({ onEat, onInteractionStart, on
       }
 
       // Draw Food
+      const foodColor = isDark ? '#57534e' : GAME_CONFIG.colorFood;
       context.beginPath();
-      context.strokeStyle = GAME_CONFIG.colorFood;
+      context.strokeStyle = foodColor;
       context.lineWidth = 1.5;
       context.arc(foodRef.current.x, foodRef.current.y, 8, 0, Math.PI * 2);
       context.stroke();
 
       context.beginPath();
-      context.fillStyle = GAME_CONFIG.colorFood;
+      context.fillStyle = foodColor;
       context.arc(foodRef.current.x, foodRef.current.y, 3, 0, Math.PI * 2);
       context.fill();
     };
@@ -377,7 +420,7 @@ const SnakeCanvas: React.FC<SnakeCanvasProps> = ({ onEat, onInteractionStart, on
       window.removeEventListener('mousedown', handleMouseDown);
       cancelAnimationFrame(frameIdRef.current);
     };
-  }, [onEat, onInteractionStart, onMenuHit, isPaused, resetKey]);
+  }, [onEat, onInteractionStart, onMenuHit, onToggleDark, isPaused, isDark, resetKey]);
 
   return <canvas ref={canvasRef} className="block absolute top-0 left-0 w-full h-full z-0" />;
 };
