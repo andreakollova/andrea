@@ -14,7 +14,7 @@ const AboutContent = ({ isEn, isDark }: AboutContentProps) => {
     <div className="space-y-6">
       <p className={`text-xl md:text-2xl font-light leading-relaxed ${isDark ? 'text-stone-100' : 'text-stone-800'}`}>
         {isEn
-          ? "I’m Andrea Kollová, a full-stack developer specializing in modern web application development (frontend, backend)."
+          ? "I’m Andrea Kollová, a full-stack dev."
           : "Som Andrea Kollová – full-stack dev, ktorá vyvíja moderné webové aplikácie od frontendu až po backend."}
       </p>
       <p className={`text-sm md:text-base font-light leading-relaxed ${isDark ? 'text-stone-300' : 'text-stone-600'}`}>
