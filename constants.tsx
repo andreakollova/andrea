@@ -60,7 +60,7 @@ export const getPortfolioSections = (lang: Language, isDark: boolean) => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 font-light">
           <div>
             <h3 className="text-stone-400 uppercase tracking-widest text-sm mb-4">Frontend</h3>
-            <ul className="space-y-2 text-lg text-stone-700">
+            <ul className={`space-y-2 text-lg ${isDark ? 'text-stone-200' : 'text-stone-700'}`}>
               <li>HTML5 & CSS3</li>
               <li>TypeScript / JavaScript</li>
               <li>React & Next.js</li>
@@ -71,7 +71,7 @@ export const getPortfolioSections = (lang: Language, isDark: boolean) => {
             <h3 className="text-stone-400 uppercase tracking-widest text-sm mb-4">
               {isEn ? "Backend & Tools" : "Backend a nástroje"}
             </h3>
-            <ul className="space-y-2 text-lg text-stone-700">
+            <ul className={`space-y-2 text-lg ${isDark ? 'text-stone-200' : 'text-stone-700'}`}>
               <li>Node.js & Express</li>
               <li>Python & Flask</li>
               <li>PostgreSQL</li>
@@ -116,28 +116,28 @@ export const getPortfolioSections = (lang: Language, isDark: boolean) => {
       title: isEn ? 'Experience' : 'Skúsenosti',
       type: 'experience',
       content: (
-        <div className="space-y-10 border-l border-stone-200 pl-6 md:pl-8 ml-2">
+        <div className={`space-y-10 border-l ${isDark ? 'border-[#2a2828]' : 'border-stone-200'} pl-6 md:pl-8 ml-2`}>
           <div className="relative">
-            <span className="absolute -left-[37px] md:-left-[41px] top-2 w-3 h-3 rounded-full bg-stone-300"></span>
+            <span className={`absolute -left-[37px] md:-left-[41px] top-2 w-3 h-3 rounded-full ${isDark ? 'bg-[#3a3838]' : 'bg-stone-300'}`}></span>
             <span className="block text-sm text-stone-400 tracking-widest mb-1">
               2022 — {isEn ? "PRESENT" : "SÚČASNOSŤ"}
             </span>
-            <h3 className="text-xl font-medium text-stone-800">Full Stack Developer</h3>
-            <p className="text-stone-500 mt-1">ANTIK Telecom</p>
+            <h3 className={`text-xl font-medium ${isDark ? 'text-stone-100' : 'text-stone-800'}`}>Full Stack Developer</h3>
+            <p className={`mt-1 ${isDark ? 'text-stone-400' : 'text-stone-500'}`}>ANTIK Telecom</p>
           </div>
           <div className="relative">
-            <span className="absolute -left-[37px] md:-left-[41px] top-2 w-3 h-3 rounded-full bg-stone-200"></span>
+            <span className={`absolute -left-[37px] md:-left-[41px] top-2 w-3 h-3 rounded-full ${isDark ? 'bg-[#2a2828]' : 'bg-stone-200'}`}></span>
             <span className="block text-sm text-stone-400 tracking-widest mb-1">
               2019 — {isEn ? "PRESENT" : "SÚČASNOSŤ"}
             </span>
-            <h3 className="text-xl font-medium text-stone-800">Full Stack Developer</h3>
-            <p className="text-stone-500 mt-1">DRIXTON Studio (Co-founder)</p>
+            <h3 className={`text-xl font-medium ${isDark ? 'text-stone-100' : 'text-stone-800'}`}>Full Stack Developer</h3>
+            <p className={`mt-1 ${isDark ? 'text-stone-400' : 'text-stone-500'}`}>DRIXTON Studio (Co-founder)</p>
           </div>
           <div className="relative">
-            <span className="absolute -left-[37px] md:-left-[41px] top-2 w-3 h-3 rounded-full bg-stone-200"></span>
+            <span className={`absolute -left-[37px] md:-left-[41px] top-2 w-3 h-3 rounded-full ${isDark ? 'bg-[#2a2828]' : 'bg-stone-200'}`}></span>
             <span className="block text-sm text-stone-400 tracking-widest mb-1">2017 — 2019</span>
-            <h3 className="text-xl font-medium text-stone-800">Junior Developer</h3>
-            <p className="text-stone-500 mt-1">Freelance</p>
+            <h3 className={`text-xl font-medium ${isDark ? 'text-stone-100' : 'text-stone-800'}`}>Junior Developer</h3>
+            <p className={`mt-1 ${isDark ? 'text-stone-400' : 'text-stone-500'}`}>Freelance</p>
           </div>
         </div>
       ),
@@ -148,11 +148,11 @@ export const getPortfolioSections = (lang: Language, isDark: boolean) => {
       type: 'contact',
       content: (
         <div className="space-y-8">
-          <p className="text-2xl font-light text-stone-800">
+          <p className={`text-2xl font-light ${isDark ? 'text-stone-100' : 'text-stone-800'}`}>
             {isEn ? "Let's work together." : "Poďme spolupracovať."}
           </p>
           <div className="flex flex-col space-y-4 items-start">
-            <a href="mailto:kollova@drixton.com" className="text-lg text-stone-500 hover:text-stone-800 transition-colors border-b border-transparent hover:border-stone-800 pb-1">
+            <a href="mailto:kollova@drixton.com" className={`text-lg transition-colors border-b border-transparent pb-1 ${isDark ? 'text-stone-300 hover:text-stone-100 hover:border-stone-100' : 'text-stone-500 hover:text-stone-800 hover:border-stone-800'}`}>
               kollova@drixton.com
             </a>
             <div className="pt-4 flex items-center gap-3">

@@ -12,10 +12,10 @@ const AboutContent = ({ isEn, isDark }: AboutContentProps) => {
     <div className="space-y-6">
       <p className="text-xl md:text-2xl font-light leading-relaxed">
         {isEn
-          ? "I'm Andrea Kollová, a full-stack developer specializing in modern web application development (frontend, backend)."
+          ? "I’m Andrea Kollová, a full-stack developer specializing in modern web application development (frontend, backend)."
           : "Som Andrea Kollová, full-stack developerka špecializovaná na vývoj moderných webových aplikácií (frontend, backend)."}
       </p>
-      <p className={`text-base font-light leading-relaxed ${isDark ? 'text-stone-400' : 'text-stone-500'}`}>
+      <p className={`text-base font-light leading-relaxed ${isDark ? 'text-stone-300' : 'text-stone-500'}`}>
         {isEn
           ? "My approach to development is rooted in the belief that clean code is just as important as clean design. I strive to make every digital interaction feel intentional and seamless."
           : "Môj prístup k vývoju vychádza z presvedčenia, že čistý kód je rovnako dôležitý ako čistý dizajn. Snažím sa aby každá digitálna interakcia bola zámerná a plynulá."}
@@ -24,7 +24,7 @@ const AboutContent = ({ isEn, isDark }: AboutContentProps) => {
         onClick={() => setShowFunFact(v => !v)}
         className={`flex items-center gap-3 text-xs tracking-widest uppercase border rounded-full px-4 py-2 transition-colors ${
           isDark
-            ? 'text-stone-400 border-stone-600 hover:border-stone-400'
+            ? 'text-stone-300 border-[#3a3838] hover:border-stone-400'
             : 'text-stone-500 border-stone-300 hover:border-stone-500'
         }`}
       >
@@ -34,17 +34,17 @@ const AboutContent = ({ isEn, isDark }: AboutContentProps) => {
         {isEn ? 'View a fun fact' : 'Zaujímavosť'}
       </button>
       {showFunFact && (
-        <div className={`fun-fact-enter rounded-xl p-4 flex gap-4 items-center ${isDark ? 'bg-stone-800' : 'bg-stone-100'}`}>
+        <div className={`fun-fact-enter rounded-xl p-4 flex gap-4 items-center ${isDark ? 'bg-[#212020]' : 'bg-stone-100'}`}>
           <img
             src="/andrea-kollova-hokej.jpg"
             alt="Andrea Kollová"
             className="w-28 h-28 rounded-lg object-cover flex-shrink-0"
           />
           <div>
-            <p className={`text-xs tracking-widest uppercase mb-2 ${isDark ? 'text-stone-500' : 'text-stone-400'}`}>
+            <p className={`text-xs tracking-widest uppercase mb-2 ${isDark ? 'text-stone-400' : 'text-stone-400'}`}>
               {isEn ? 'Athlete Background' : 'Športová kariéra'}
             </p>
-            <p className={`text-base font-light italic ${isDark ? 'text-stone-300' : 'text-stone-700'}`}>
+            <p className={`text-base font-light italic ${isDark ? 'text-stone-200' : 'text-stone-700'}`}>
               {isEn
                 ? "During my studies, I actively competed at the international level as part of the Slovak national hockey team."
                 : "Počas štúdia som aktívne súťažila na medzinárodnej úrovni ako členka slovenského národného hokejového tímu."}

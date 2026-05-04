@@ -26,7 +26,7 @@ const Modal: React.FC<ModalProps> = ({ section, onClose, isDark }) => {
   return (
     <div 
       className={`fixed inset-0 z-50 flex items-center justify-center p-6 md:p-12 transition-all duration-700 ease-out ${
-        isVisible ? `${isDark ? 'bg-stone-900/90' : 'bg-stone-50/90'} backdrop-blur-sm opacity-100` : 'bg-transparent opacity-0 pointer-events-none'
+        isVisible ? `${isDark ? 'bg-[#151414]/90' : 'bg-stone-50/90'} backdrop-blur-sm opacity-100` : 'bg-transparent opacity-0 pointer-events-none'
       }`}
     >
       <div 
@@ -34,7 +34,7 @@ const Modal: React.FC<ModalProps> = ({ section, onClose, isDark }) => {
           isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
         }`}
       >
-        <div className={`flex justify-between items-start mb-12 border-b pb-4 ${isDark ? 'border-stone-700' : 'border-stone-200'}`}>
+        <div className={`flex justify-between items-start mb-12 border-b pb-4 ${isDark ? 'border-[#2a2828]' : 'border-stone-200'}`}>
           <div className="flex items-center gap-4">
             {section.headerImage && (
               <img src={section.headerImage} alt="" className="w-12 h-12 rounded-full object-cover flex-shrink-0" />
@@ -45,7 +45,7 @@ const Modal: React.FC<ModalProps> = ({ section, onClose, isDark }) => {
           </div>
           <button 
             onClick={onClose}
-            className={`p-2 rounded-full transition-colors focus:outline-none ${isDark ? 'text-stone-400 hover:text-stone-100 hover:bg-stone-700' : 'text-stone-500 hover:text-stone-800 hover:bg-stone-200'}`}
+            className={`p-2 rounded-full transition-colors focus:outline-none ${isDark ? 'text-stone-400 hover:text-stone-100 hover:bg-[#212020]' : 'text-stone-500 hover:text-stone-800 hover:bg-stone-200'}`}
             aria-label="Close"
           >
             <X size={24} strokeWidth={1.5} />

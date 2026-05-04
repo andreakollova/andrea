@@ -58,7 +58,7 @@ function App() {
   }, [language, isDark]);
 
   return (
-    <div className={`relative w-full h-screen overflow-hidden cursor-default transition-colors duration-500 ${isDark ? 'bg-stone-900' : 'bg-stone-50'}`}>
+    <div className={`relative w-full h-screen overflow-hidden cursor-default transition-colors duration-500 ${isDark ? 'bg-[#151414]' : 'bg-stone-50'}`}>
       {/* Background/Game Layer */}
       <SnakeCanvas
         isPaused={!!currentSection || isMenuOpen}

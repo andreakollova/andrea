@@ -24,7 +24,7 @@ const Navigation: React.FC<NavigationProps> = ({ onSelectSection, isOpen, onClos
     <>
       {/* Menu Overlay */}
       <div
-        className={`fixed inset-0 z-40 backdrop-blur-sm flex flex-col items-center justify-center transition-all duration-500 ease-in-out ${isDark ? 'bg-stone-900/95' : 'bg-stone-50/95'} ${
+        className={`fixed inset-0 z-40 backdrop-blur-sm flex flex-col items-center justify-center transition-all duration-500 ease-in-out ${isDark ? 'bg-[#151414]/95' : 'bg-stone-50/95'} ${
           isOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
         }`}
       >
@@ -48,7 +48,7 @@ const Navigation: React.FC<NavigationProps> = ({ onSelectSection, isOpen, onClos
               alt="Drixton"
               className="h-5 w-auto"
             />
-            <span className={`text-sm font-light tracking-widest uppercase ${isDark ? 'text-stone-400' : 'text-stone-500'}`}>
+            <span className={`text-sm font-light tracking-widest uppercase ${isDark ? 'text-stone-300' : 'text-stone-500'}`}>
               {language === 'sk' ? 'Viac projektov na' : 'My work at'} drixton.com
             </span>
             <span className={`text-sm ${isDark ? 'text-stone-400' : 'text-stone-500'}`}>→</span>
