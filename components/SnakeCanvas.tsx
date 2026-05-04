@@ -227,11 +227,28 @@ const SnakeCanvas: React.FC<SnakeCanvasProps> = ({ onEat, onInteractionStart, on
     };
 
     const handleTouchStart = (e: TouchEvent) => {
-      if (isPaused) return;
       if (e.cancelable) e.preventDefault();
       const touch = e.touches[0];
       const tx = touch.clientX;
       const ty = touch.clientY;
+
+      // Switch toggle works even when paused (dark mode always accessible)
+      const { x: swx, y: swy } = switchPositionRef.current;
+      if (tx >= swx - 25 && tx <= swx + 170 && ty >= swy - 25 && ty <= swy + 25) {
+        onToggleDark();
+        return;
+      }
+
+      // Menu open works even when paused (e.g. navigating from section)
+      const dxMenu = tx - menuPositionRef.current.x;
+      const dyMenu = ty - menuPositionRef.current.y;
+      if (Math.sqrt(dxMenu * dxMenu + dyMenu * dyMenu) < 50) {
+        if (!directionRef.current) onInteractionStart();
+        onMenuHit();
+        return;
+      }
+
+      if (isPaused) return;
 
       // Tap on food → trigger eat
       const dxFood = tx - foodRef.current.x;
@@ -240,22 +257,6 @@ const SnakeCanvas: React.FC<SnakeCanvasProps> = ({ onEat, onInteractionStart, on
         if (!directionRef.current) onInteractionStart();
         onEat();
         spawnFood(canvasSizeRef.current.w, canvasSizeRef.current.h);
-        return;
-      }
-
-      // Tap on menu icon
-      const dxMenu = tx - menuPositionRef.current.x;
-      const dyMenu = ty - menuPositionRef.current.y;
-      if (Math.sqrt(dxMenu * dxMenu + dyMenu * dyMenu) < 40) {
-        if (!directionRef.current) onInteractionStart();
-        onMenuHit();
-        return;
-      }
-
-      // Tap on switch icon or label → toggle dark mode
-      const { x: swx, y: swy } = switchPositionRef.current;
-      if (tx >= swx - 20 && tx <= swx + 160 && ty >= swy - 20 && ty <= swy + 20) {
-        onToggleDark();
         return;
       }
 
