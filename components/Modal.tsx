@@ -38,7 +38,7 @@ const Modal: React.FC<ModalProps> = ({ section, onClose, isDark }) => {
           isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
         }`}
       >
-        <div className={`flex justify-between items-start mb-12 border-b pb-4 ${isDark ? 'border-[#2a2828]' : 'border-stone-200'}`}>
+        <div className={`flex justify-between items-start mb-12 border-b pb-4 ${isDark ? 'border-[#2b2b2b]' : 'border-stone-200'}`}>
           <div className="flex items-center gap-4">
             {section.headerImage && (
               <img src={section.headerImage} alt="" className="w-12 h-12 rounded-full object-cover flex-shrink-0 cursor-pointer hover:opacity-90 transition-opacity" onClick={() => setLightboxSrc(section.headerImage!)} />

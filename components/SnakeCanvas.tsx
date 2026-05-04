@@ -337,8 +337,8 @@ const SnakeCanvas: React.FC<SnakeCanvasProps> = ({ onEat, onInteractionStart, on
 
     const draw = (context: CanvasRenderingContext2D) => {
       const { w, h } = canvasSizeRef.current;
-      const color = isDark ? '#a09896' : '#a8a29e';
-      const colorDim = isDark ? '#6e6a67' : '#c4bdb8';
+      const color = isDark ? '#9e9e9e' : '#a8a29e';
+      const colorDim = isDark ? '#6b6b6b' : '#c4bdb8';
 
       context.clearRect(0, 0, w, h);
 
@@ -411,7 +411,7 @@ const SnakeCanvas: React.FC<SnakeCanvasProps> = ({ onEat, onInteractionStart, on
       // Draw Snake
       context.beginPath();
       context.lineWidth = GAME_CONFIG.segmentSize;
-      context.strokeStyle = isDark ? '#6e6a67' : GAME_CONFIG.colorSnake;
+      context.strokeStyle = isDark ? '#6b6b6b' : GAME_CONFIG.colorSnake;
 
       if (snakeRef.current.length > 1) {
         context.moveTo(snakeRef.current[0].x, snakeRef.current[0].y);
@@ -431,7 +431,7 @@ const SnakeCanvas: React.FC<SnakeCanvasProps> = ({ onEat, onInteractionStart, on
       }
 
       // Draw Food
-      const foodColor = isDark ? '#6e6a67' : GAME_CONFIG.colorFood;
+      const foodColor = isDark ? '#6b6b6b' : GAME_CONFIG.colorFood;
       context.beginPath();
       context.strokeStyle = foodColor;
       context.lineWidth = 1.5;

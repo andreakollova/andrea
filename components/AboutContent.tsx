@@ -26,7 +26,7 @@ const AboutContent = ({ isEn, isDark }: AboutContentProps) => {
         onClick={() => setShowFunFact(v => !v)}
         className={`flex items-center gap-3 text-xs tracking-widest uppercase border rounded-full px-4 py-2 transition-colors ${
           isDark
-            ? 'text-stone-300 border-[#3a3838] hover:border-stone-400'
+            ? 'text-stone-300 border-[#3a3a3a] hover:border-stone-400'
             : 'text-stone-500 border-stone-300 hover:border-stone-500'
         }`}
       >

@@ -116,9 +116,9 @@ export const getPortfolioSections = (lang: Language, isDark: boolean) => {
       title: isEn ? 'Experience' : 'Skúsenosti',
       type: 'experience',
       content: (
-        <div className={`space-y-10 border-l ${isDark ? 'border-[#2a2828]' : 'border-stone-200'} pl-6 md:pl-8 ml-2`}>
+        <div className={`space-y-10 border-l ${isDark ? 'border-[#2b2b2b]' : 'border-stone-200'} pl-6 md:pl-8 ml-2`}>
           <div className="relative">
-            <span className={`absolute -left-[37px] md:-left-[41px] top-2 w-3 h-3 rounded-full ${isDark ? 'bg-[#3a3838]' : 'bg-stone-300'}`}></span>
+            <span className={`absolute -left-[37px] md:-left-[41px] top-2 w-3 h-3 rounded-full ${isDark ? 'bg-[#3a3a3a]' : 'bg-stone-300'}`}></span>
             <span className="block text-sm text-stone-400 tracking-widest mb-1">
               2022 — {isEn ? "PRESENT" : "SÚČASNOSŤ"}
             </span>
@@ -126,7 +126,7 @@ export const getPortfolioSections = (lang: Language, isDark: boolean) => {
             <p className={`mt-1 ${isDark ? 'text-stone-400' : 'text-stone-500'}`}>ANTIK Telecom</p>
           </div>
           <div className="relative">
-            <span className={`absolute -left-[37px] md:-left-[41px] top-2 w-3 h-3 rounded-full ${isDark ? 'bg-[#2a2828]' : 'bg-stone-200'}`}></span>
+            <span className={`absolute -left-[37px] md:-left-[41px] top-2 w-3 h-3 rounded-full ${isDark ? 'bg-[#2b2b2b]' : 'bg-stone-200'}`}></span>
             <span className="block text-sm text-stone-400 tracking-widest mb-1">
               2019 — {isEn ? "PRESENT" : "SÚČASNOSŤ"}
             </span>
@@ -134,7 +134,7 @@ export const getPortfolioSections = (lang: Language, isDark: boolean) => {
             <p className={`mt-1 ${isDark ? 'text-stone-400' : 'text-stone-500'}`}>DRIXTON Studio (Co-founder)</p>
           </div>
           <div className="relative">
-            <span className={`absolute -left-[37px] md:-left-[41px] top-2 w-3 h-3 rounded-full ${isDark ? 'bg-[#2a2828]' : 'bg-stone-200'}`}></span>
+            <span className={`absolute -left-[37px] md:-left-[41px] top-2 w-3 h-3 rounded-full ${isDark ? 'bg-[#2b2b2b]' : 'bg-stone-200'}`}></span>
             <span className="block text-sm text-stone-400 tracking-widest mb-1">2017 — 2019</span>
             <h3 className={`text-xl font-medium ${isDark ? 'text-stone-100' : 'text-stone-800'}`}>Junior Developer</h3>
             <p className={`mt-1 ${isDark ? 'text-stone-400' : 'text-stone-500'}`}>Freelance</p>
