@@ -353,20 +353,37 @@ const SnakeCanvas: React.FC<SnakeCanvasProps> = ({ onEat, onInteractionStart, on
         context.fillText('HIT TO OPEN', mx - 25, my + 4);
       }
 
-      // Draw Switch Target (top left)
+      // Draw Switch Target (top left) — sun or moon icon
       const sx = switchPositionRef.current.x;
       const sy = switchPositionRef.current.y;
 
       context.strokeStyle = color;
-      context.lineWidth = 2;
-      context.beginPath();
-      context.arc(sx, sy, 9, 0, Math.PI * 2);
-      context.stroke();
-      // dot inside
-      context.beginPath();
       context.fillStyle = color;
-      context.arc(sx, sy, 3, 0, Math.PI * 2);
-      context.fill();
+      context.lineWidth = 1.5;
+
+      if (isDark) {
+        // Moon icon
+        context.beginPath();
+        context.arc(sx, sy, 9, 0, Math.PI * 2);
+        context.stroke();
+        context.beginPath();
+        context.arc(sx + 5, sy - 3, 7, 0, Math.PI * 2);
+        context.fillStyle = isDark ? '#1c1917' : '#fafaf9';
+        context.fill();
+      } else {
+        // Sun icon
+        context.beginPath();
+        context.arc(sx, sy, 5, 0, Math.PI * 2);
+        context.stroke();
+        // rays
+        for (let i = 0; i < 8; i++) {
+          const angle = (i * Math.PI) / 4;
+          context.beginPath();
+          context.moveTo(sx + Math.cos(angle) * 8, sy + Math.sin(angle) * 8);
+          context.lineTo(sx + Math.cos(angle) * 11, sy + Math.sin(angle) * 11);
+          context.stroke();
+        }
+      }
 
       if (directionRef.current) {
         context.font = '10px Inter, sans-serif';
