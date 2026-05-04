@@ -15,7 +15,7 @@ const Hero: React.FC<HeroProps> = ({ hasStarted, language, isDark }) => {
 
   useEffect(() => {
     if (hasStarted) { setShowHint(false); return; }
-    const timer = setTimeout(() => setShowHint(true), 1800);
+    const timer = setTimeout(() => setShowHint(true), 1000);
     return () => clearTimeout(timer);
   }, [hasStarted]);
 

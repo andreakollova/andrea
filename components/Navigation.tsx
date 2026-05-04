@@ -48,10 +48,10 @@ const Navigation: React.FC<NavigationProps> = ({ onSelectSection, isOpen, onClos
               alt="Drixton"
               className="h-5 w-auto"
             />
-            <span className={`text-sm font-light tracking-widest uppercase ${isDark ? 'text-stone-300' : 'text-stone-500'}`}>
+            <span className={`text-xs md:text-sm font-light tracking-widest uppercase ${isDark ? 'text-stone-300' : 'text-stone-500'}`}>
               {language === 'sk' ? 'Viac projektov na' : 'My work at'} drixton.com
             </span>
-            <span className={`text-sm ${isDark ? 'text-stone-400' : 'text-stone-500'}`}>→</span>
+            <span className={`text-xs md:text-sm ${isDark ? 'text-stone-400' : 'text-stone-500'}`}>→</span>
           </a>
           {sections.map((section) => (
             <button
