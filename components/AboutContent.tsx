@@ -15,12 +15,12 @@ const AboutContent = ({ isEn, isDark }: AboutContentProps) => {
       <p className={`text-xl md:text-2xl font-light leading-relaxed ${isDark ? 'text-stone-100' : 'text-stone-800'}`}>
         {isEn
           ? "I’m Andrea Kollová, a full-stack developer specializing in modern web application development (frontend, backend)."
-          : "Som Andrea Kollová, full-stack developerka špecializovaná na vývoj moderných webových aplikácií (frontend, backend)."}
+          : "Som Andrea Kollová – full-stack dev, ktorá vyvíja moderné webové aplikácie od frontendu až po backend."}
       </p>
       <p className={`text-sm md:text-base font-light leading-relaxed ${isDark ? 'text-stone-300' : 'text-stone-600'}`}>
         {isEn
           ? "I focus on clean architecture, maintainable code, and consistent UI – because performance, structure, and usability all need to align. If one layer fails, the whole system feels it. I build systems that are stable, scalable, and ready to handle real-world use."
-          : "Môj prístup k vývoju vychádza z presvedčenia, že čistý kód je rovnako dôležitý ako čistý dizajn. Snažím sa aby každá digitálna interakcia bola zámerná a plynulá."}
+          : "Staviam na čistej architektúre, prehľadnom a udržiavateľnom kóde a konzistentnom UI. Vytváram riešenia, ktoré sú stabilné, škálovateľné a navrhnuté pre reálne nasadenie a každodenné používanie."}
       </p>
       <button
         onClick={() => setShowFunFact(v => !v)}
