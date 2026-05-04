@@ -379,7 +379,7 @@ const SnakeCanvas: React.FC<SnakeCanvasProps> = ({ onEat, onInteractionStart, on
     };
   }, [onEat, onInteractionStart, onMenuHit, isPaused, resetKey]);
 
-  return <canvas ref={canvasRef} className="block absolute top-0 left-0 w-full h-full z-0 cursor-none" />;
+  return <canvas ref={canvasRef} className="block absolute top-0 left-0 w-full h-full z-0" />;
 };
 
 export default SnakeCanvas;

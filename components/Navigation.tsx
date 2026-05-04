@@ -40,17 +40,9 @@ const Navigation: React.FC<NavigationProps> = ({ onSelectSection, isOpen, onClos
             href="https://www.drixton.com/"
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center justify-center gap-3 mb-2 opacity-40 hover:opacity-100 transition-opacity"
+            className="flex items-center justify-center opacity-40 hover:opacity-100 transition-opacity mb-2"
           >
-            <span className="text-sm font-light tracking-widest text-stone-500 uppercase">
-              {language === 'sk' ? 'Viac projektov na' : 'My work at'}
-            </span>
-            <img
-              src="https://www.drixton.com/static/logo-keyboard.png"
-              alt="Drixton"
-              className="h-5 w-auto"
-            />
-            <span className="text-sm font-light tracking-widest text-stone-500 uppercase">drixton.com</span>
+            <span className="text-3xl md:text-5xl font-light text-stone-800 tracking-tight">→</span>
           </a>
           {sections.map((section) => (
             <button
