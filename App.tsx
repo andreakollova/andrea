@@ -26,11 +26,11 @@ function App() {
   }, [hasInteractionStarted]);
 
   const handleEat = useCallback(() => {
-    const sections = getPortfolioSections(language);
+    const sections = getPortfolioSections(language, isDark);
     const sectionToShow = sections[sectionIndex];
     setCurrentSection(sectionToShow);
     setSectionIndex((prev) => (prev + 1) % sections.length);
-  }, [sectionIndex, language]);
+  }, [sectionIndex, language, isDark]);
 
   const handleMenuHit = useCallback(() => {
     setIsMenuOpen(true);
@@ -48,14 +48,14 @@ function App() {
   }, []);
 
   const handleSelectSection = useCallback((id: string) => {
-    const sections = getPortfolioSections(language);
+    const sections = getPortfolioSections(language, isDark);
     const section = sections.find((s) => s.id === id);
     if (section) {
       setCurrentSection(section);
       setHasInteractionStarted(true);
       setIsMenuOpen(false); // Close menu when a section is selected
     }
-  }, [language]);
+  }, [language, isDark]);
 
   return (
     <div className={`relative w-full h-screen overflow-hidden cursor-default transition-colors duration-500 ${isDark ? 'bg-stone-900' : 'bg-stone-50'}`}>

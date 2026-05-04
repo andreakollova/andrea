@@ -35,9 +35,14 @@ const Modal: React.FC<ModalProps> = ({ section, onClose, isDark }) => {
         }`}
       >
         <div className={`flex justify-between items-start mb-12 border-b pb-4 ${isDark ? 'border-stone-700' : 'border-stone-200'}`}>
-          <h2 className={`text-3xl md:text-4xl font-light tracking-tight ${isDark ? 'text-stone-100' : 'text-stone-800'}`}>
-            {section.title}
-          </h2>
+          <div className="flex items-center gap-4">
+            {section.headerImage && (
+              <img src={section.headerImage} alt="" className="w-12 h-12 rounded-full object-cover flex-shrink-0" />
+            )}
+            <h2 className={`text-3xl md:text-4xl font-light tracking-tight ${isDark ? 'text-stone-100' : 'text-stone-800'}`}>
+              {section.title}
+            </h2>
+          </div>
           <button 
             onClick={onClose}
             className={`p-2 rounded-full transition-colors focus:outline-none ${isDark ? 'text-stone-400 hover:text-stone-100 hover:bg-stone-700' : 'text-stone-500 hover:text-stone-800 hover:bg-stone-200'}`}

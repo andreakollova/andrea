@@ -12,6 +12,7 @@ export interface SectionContent {
   title: string;
   type: 'about' | 'skills' | 'work' | 'experience' | 'contact';
   content: React.ReactNode;
+  headerImage?: string;
 }
 
 export type Direction = 'UP' | 'DOWN' | 'LEFT' | 'RIGHT' | null;

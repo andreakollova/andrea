@@ -242,10 +242,9 @@ const SnakeCanvas: React.FC<SnakeCanvasProps> = ({ onEat, onInteractionStart, on
         return;
       }
 
-      // Click on switch icon → toggle dark mode
-      const dxSwitch = cx - switchPositionRef.current.x;
-      const dySwitch = cy - switchPositionRef.current.y;
-      if (Math.sqrt(dxSwitch * dxSwitch + dySwitch * dySwitch) < 40) {
+      // Click on switch icon or its label text → toggle dark mode
+      const { x: swx, y: swy } = switchPositionRef.current;
+      if (cx >= swx - 15 && cx <= swx + 130 && cy >= swy - 15 && cy <= swy + 15) {
         onToggleDark();
         return;
       }
@@ -314,10 +313,9 @@ const SnakeCanvas: React.FC<SnakeCanvasProps> = ({ onEat, onInteractionStart, on
         onMenuHit();
       }
 
-      // Collision with Switch
-      const dxSwitch = head.x - switchPositionRef.current.x;
-      const dySwitch = head.y - switchPositionRef.current.y;
-      if (Math.sqrt(dxSwitch * dxSwitch + dySwitch * dySwitch) < 40) {
+      // Collision with Switch (icon + text area)
+      const { x: swx, y: swy } = switchPositionRef.current;
+      if (head.x >= swx - 15 && head.x <= swx + 130 && head.y >= swy - 15 && head.y <= swy + 15) {
         onToggleDark();
       }
     };
@@ -362,20 +360,17 @@ const SnakeCanvas: React.FC<SnakeCanvasProps> = ({ onEat, onInteractionStart, on
       context.lineWidth = 1.5;
 
       if (isDark) {
-        // Moon icon
+        // Crescent moon — arc with clipping fill
+        context.save();
         context.beginPath();
-        context.arc(sx, sy, 9, 0, Math.PI * 2);
+        context.arc(sx, sy, 9, Math.PI * 0.2, Math.PI * 1.8);
         context.stroke();
-        context.beginPath();
-        context.arc(sx + 5, sy - 3, 7, 0, Math.PI * 2);
-        context.fillStyle = isDark ? '#1c1917' : '#fafaf9';
-        context.fill();
+        context.restore();
       } else {
         // Sun icon
         context.beginPath();
         context.arc(sx, sy, 5, 0, Math.PI * 2);
         context.stroke();
-        // rays
         for (let i = 0; i < 8; i++) {
           const angle = (i * Math.PI) / 4;
           context.beginPath();
