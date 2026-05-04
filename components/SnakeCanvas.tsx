@@ -61,7 +61,7 @@ const SnakeCanvas: React.FC<SnakeCanvasProps> = ({ onEat, onInteractionStart, on
 
   const updateMenuPosition = (width: number) => {
     menuPositionRef.current = { x: width - 50, y: 50 };
-    switchPositionRef.current = { x: 58, y: 50 };
+    switchPositionRef.current = { x: width < 768 ? 53 : 58, y: 50 };
   };
 
   const spawnFood = (width: number, height: number) => {
