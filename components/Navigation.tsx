@@ -46,7 +46,7 @@ const Navigation: React.FC<NavigationProps> = ({ onSelectSection, isOpen, onClos
               {language === 'sk' ? 'Viac projektov na' : 'My work at'}
             </span>
             <img
-              src="https://www.drixton.com/static/logo-keyboard.png"
+              src="https://www.drixton.com/static/logo-black.png"
               alt="Drixton"
               className="h-5 w-auto"
             />
