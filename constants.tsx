@@ -105,7 +105,7 @@ export const getPortfolioSections = (lang: Language): SectionContent[] => {
           </div>
           <div className="p-4">
             <img
-              src="https://www.drixton.com/static/logo-black.png"
+              src="https://www.drixton.com/static/logo-keyboard.png"
               alt="Drixton Studio"
               className="h-12 object-contain hover:opacity-100 transition-opacity"
             />
