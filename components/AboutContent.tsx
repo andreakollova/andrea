@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { ChevronDown } from 'lucide-react';
 
 interface AboutContentProps {
   isEn: boolean;
@@ -27,11 +28,13 @@ const AboutContent = ({ isEn, isDark }: AboutContentProps) => {
             : 'text-stone-500 border-stone-300 hover:border-stone-500'
         }`}
       >
-        <span className="w-2 h-2 rounded-full inline-block bg-stone-400"></span>
+        <span className={`flex items-center justify-center w-4 h-4 rounded-full border ${isDark ? 'border-stone-500' : 'border-stone-400'} transition-transform duration-300 ${showFunFact ? 'rotate-180' : ''}`}>
+          <ChevronDown size={10} strokeWidth={2} />
+        </span>
         {isEn ? 'View a fun fact' : 'Zaujímavosť'}
       </button>
       {showFunFact && (
-        <div className={`rounded-xl p-4 flex gap-4 items-center ${isDark ? 'bg-stone-800' : 'bg-stone-100'}`}>
+        <div className={`fun-fact-enter rounded-xl p-4 flex gap-4 items-center ${isDark ? 'bg-stone-800' : 'bg-stone-100'}`}>
           <img
             src="/andrea-kollova-hokej.jpg"
             alt="Andrea Kollová"
