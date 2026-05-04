@@ -1,53 +1,5 @@
-import { useState } from 'react';
+import AboutContent from './components/AboutContent';
 import { SectionContent, Language } from './types';
-
-const AboutContent = ({ isEn, isDark }: { isEn: boolean; isDark: boolean }) => {
-  const [showFunFact, setShowFunFact] = useState(false);
-  return (
-    <div className="space-y-6">
-      <p className="text-xl md:text-2xl font-light leading-relaxed">
-        {isEn
-          ? "I'm Andrea Kollová, a full-stack developer specializing in modern web application development (frontend, backend)."
-          : "Som Andrea Kollová, full-stack developerka špecializovaná na vývoj moderných webových aplikácií (frontend, backend)."}
-      </p>
-      <p className={`text-base font-light leading-relaxed ${isDark ? 'text-stone-400' : 'text-stone-500'}`}>
-        {isEn
-          ? "My approach to development is rooted in the belief that clean code is just as important as clean design. I strive to make every digital interaction feel intentional and seamless."
-          : "Môj prístup k vývoju vychádza z presvedčenia, že čistý kód je rovnako dôležitý ako čistý dizajn. Snažím sa aby každá digitálna interakcia bola zámerná a plynulá."}
-      </p>
-      <button
-        onClick={() => setShowFunFact(v => !v)}
-        className={`flex items-center gap-3 text-xs tracking-widest uppercase border rounded-full px-4 py-2 transition-colors ${
-          isDark
-            ? 'text-stone-400 border-stone-600 hover:border-stone-400'
-            : 'text-stone-500 border-stone-300 hover:border-stone-500'
-        }`}
-      >
-        <span className={`w-2 h-2 rounded-full inline-block ${isDark ? 'bg-stone-400' : 'bg-stone-400'}`}></span>
-        {isEn ? 'View a fun fact' : 'Zaujímavosť'}
-      </button>
-      {showFunFact && (
-        <div className={`rounded-xl p-4 flex gap-4 items-center ${isDark ? 'bg-stone-800' : 'bg-stone-100'}`}>
-          <img
-            src="/andrea-kollova-hokej.jpg"
-            alt="Andrea Kollová"
-            className="w-28 h-28 rounded-lg object-cover flex-shrink-0"
-          />
-          <div>
-            <p className={`text-xs tracking-widest uppercase mb-2 ${isDark ? 'text-stone-500' : 'text-stone-400'}`}>
-              {isEn ? 'Athlete Background' : 'Športová kariéra'}
-            </p>
-            <p className={`text-base font-light italic ${isDark ? 'text-stone-300' : 'text-stone-700'}`}>
-              {isEn
-                ? "During my studies, I actively competed at the international level as part of the Slovak national hockey team."
-                : "Počas štúdia som aktívne súťažila na medzinárodnej úrovni ako členka slovenského národného hokejového tímu."}
-            </p>
-          </div>
-        </div>
-      )}
-    </div>
-  );
-};
 
 export const GAME_CONFIG = {
   speed: 4, // Movement speed
@@ -60,7 +12,7 @@ export const GAME_CONFIG = {
 
 export const TRANSLATIONS = {
   en: {
-    heroTitle: "I’m Andrea",
+    heroTitle: "I'm Andrea",
     heroSubtitle: "Full-Stack Developer",
     heroDesktop: "MOVE THE SNAKE TO EXPLORE",
     heroMobile: "TAP TO EXPLORE",
@@ -87,16 +39,18 @@ export const TRANSLATIONS = {
   }
 };
 
-export const getPortfolioSections = (lang: Language, isDark: boolean = false): SectionContent[] => {
-  const isEn = lang === ‘en’;
+export const getPortfolioSections = (lang: Language, isDark: boolean) => {
+  const isEn = lang === 'en';
 
   return [
     {
-      id: ‘about’,
-      title: isEn ? ‘About’ : ‘O mne’,
-      type: ‘about’,
-      headerImage: ‘/andrea-kollova.jpg’,
-      content: <AboutContent isEn={isEn} isDark={isDark} />,
+      id: 'about',
+      title: isEn ? 'About' : 'O mne',
+      type: 'about',
+      headerImage: '/andrea-kollova.jpg',
+      content: (
+        <AboutContent isEn={isEn} isDark={isDark} />
+      ),
     },
     {
       id: 'skills',
@@ -195,7 +149,7 @@ export const getPortfolioSections = (lang: Language, isDark: boolean = false): S
       content: (
         <div className="space-y-8">
           <p className="text-2xl font-light text-stone-800">
-            {isEn ? "Let’s work together." : "Poďme spolupracovať."}
+            {isEn ? "Let's work together." : "Poďme spolupracovať."}
           </p>
           <div className="flex flex-col space-y-4 items-start">
             <a href="mailto:kollova@drixton.com" className="text-lg text-stone-500 hover:text-stone-800 transition-colors border-b border-transparent hover:border-stone-800 pb-1">
