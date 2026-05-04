@@ -43,7 +43,7 @@ const Navigation: React.FC<NavigationProps> = ({ onSelectSection, isOpen, onClos
             className="flex items-center justify-center gap-3 mb-2 opacity-40 hover:opacity-100 transition-opacity"
           >
             <span className="text-sm font-light tracking-widest text-stone-500 uppercase">
-              {language === 'sk' ? 'Viac práce na' : 'More work at'}
+              {language === 'sk' ? 'Viac projektov na' : 'More work at'}
             </span>
             <img
               src="https://www.drixton.com/static/logo-keyboard.png"
