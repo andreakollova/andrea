@@ -34,21 +34,23 @@ const Hero: React.FC<HeroProps> = ({ hasStarted, language, isDark }) => {
         </p>
       </div>
 
+      {/* Hint — positioned below the snake start point (~75% from top) */}
       <div
-        className={`absolute bottom-12 flex flex-col items-center gap-2 transition-opacity duration-700 ${showHint && !hasStarted ? 'opacity-100' : 'opacity-0'}`}
+        className={`absolute bottom-6 flex flex-col items-center gap-2 transition-opacity duration-700 ${showHint && !hasStarted ? 'opacity-100' : 'opacity-0'}`}
       >
         {/* Desktop hint */}
         <div className="hidden md:flex items-center gap-2 text-stone-400 animate-pulse">
-          <Keyboard size={16} strokeWidth={1.5} />
-          <p className="text-sm font-light tracking-widest uppercase">{t.heroDesktop}</p>
+          <Keyboard size={14} strokeWidth={1.5} />
+          <p className="text-xs font-light tracking-widest uppercase">{t.heroDesktop}</p>
         </div>
-        {/* Mobile hint */}
+        {/* Mobile hint — tap/touch ripple icon */}
         <div className="flex md:hidden items-center gap-2 text-stone-400 animate-pulse">
-          <svg width="14" height="18" viewBox="0 0 14 18" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-            <path d="M7 1C5.3 1 4 2.3 4 4v6c0 1.7 1.3 3 3 3s3-1.3 3-3V4c0-1.7-1.3-3-3-3z"/>
-            <path d="M1 10c0 3.3 2.7 6 6 6s6-2.7 6-6"/>
+          <svg width="14" height="14" viewBox="0 0 18 18" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round">
+            <circle cx="9" cy="9" r="2.5" fill="currentColor" stroke="none"/>
+            <circle cx="9" cy="9" r="5.5"/>
+            <circle cx="9" cy="9" r="8" strokeOpacity="0.35"/>
           </svg>
-          <p className="text-sm font-light tracking-widest uppercase">{t.heroMobile}</p>
+          <p className="text-xs font-light tracking-widest uppercase">{t.heroMobile}</p>
         </div>
       </div>
     </div>
