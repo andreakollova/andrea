@@ -15,7 +15,8 @@
     <meta property="og:url" content="https://www.andreakollova.sk/" />
     <meta property="og:title" content="Andrea Kollová | Full-Stack Developer" />
     <meta property="og:description" content="Full-Stack Developer špecializovaná na vývoj moderných webov, aplikácií a digitálnych produktov." />
-    <meta property="og:image" content="https://www.andreakollova.sk/andrea-kollova.png" />
+    <meta property="og:image" content="https://www.andreakollova.sk/andrea-kollova-hokej.jpg" />
+    <meta property="og:image:alt" content="Andrea Kollová — Full-Stack Developer" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
     <meta property="og:locale" content="sk_SK" />
@@ -25,7 +26,8 @@
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Andrea Kollová | Full-Stack Developer" />
     <meta name="twitter:description" content="Full-Stack Developer špecializovaná na vývoj moderných webov, aplikácií a digitálnych produktov." />
-    <meta name="twitter:image" content="https://www.andreakollova.sk/andrea-kollova.png" />
+    <meta name="twitter:image" content="https://www.andreakollova.sk/andrea-kollova-hokej.jpg" />
+    <meta name="twitter:image:alt" content="Andrea Kollová — Full-Stack Developer" />
 
     <!-- Structured Data – Person -->
     <script type="application/ld+json">
@@ -39,13 +41,22 @@
       "jobTitle": "Full-Stack Developer",
       "description": "Andrea Kollová je full-stack developerka špecializovaná na vývoj moderných webov, aplikácií a digitálnych produktov. React, Next.js, React Native, TypeScript, Node.js.",
       "url": "https://www.andreakollova.sk",
-      "image": {
-        "@type": "ImageObject",
-        "url": "https://www.andreakollova.sk/andrea-kollova.png",
-        "width": 1174,
-        "height": 1174,
-        "caption": "Andrea Kollová — Full-Stack Developer"
-      },
+      "image": [
+        {
+          "@type": "ImageObject",
+          "url": "https://www.andreakollova.sk/andrea-kollova-hokej.jpg",
+          "name": "Andrea Kollová — Full-Stack Developer",
+          "caption": "Andrea Kollová, Full-Stack Developer, hokejistka",
+          "description": "Andrea Kollová — full-stack developerka a spoluzakladateľka Drixton Web & Dev Studia"
+        },
+        {
+          "@type": "ImageObject",
+          "url": "https://www.andreakollova.sk/andrea-kollova.jpg",
+          "name": "Andrea Kollová",
+          "caption": "Andrea Kollová — Full-Stack Developer & Co-founder of Drixton",
+          "description": "Andrea Kollová, full-stack developerka, Bratislava"
+        }
+      ],
       "sameAs": [
         "https://www.andreakollova.sk",
         "https://sk.linkedin.com/in/andrea-kollová-318091289",
@@ -64,6 +75,9 @@
   </head>
   <body>
     <div id="root"></div>
+    <!-- SEO image references for Google Image indexing -->
+    <img src="/andrea-kollova-hokej.jpg" alt="Andrea Kollová Full-Stack Developer hokej" width="1" height="1" style="position:absolute;width:1px;height:1px;overflow:hidden;opacity:0;pointer-events:none;" />
+    <img src="/andrea-kollova.jpg" alt="Andrea Kollová Full-Stack Developer" width="1" height="1" style="position:absolute;width:1px;height:1px;overflow:hidden;opacity:0;pointer-events:none;" />
     <script type="module" src="/index.tsx"></script>
   </body>
 </html>
