@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { SectionContent } from '../types';
 import { X } from 'lucide-react';
+import Lightbox from './Lightbox';
 
 interface ModalProps {
   section: SectionContent | null;
@@ -10,6 +11,7 @@ interface ModalProps {
 
 const Modal: React.FC<ModalProps> = ({ section, onClose, isDark }) => {
   const [isVisible, setIsVisible] = useState(false);
+  const [lightboxSrc, setLightboxSrc] = useState<string | null>(null);
 
   useEffect(() => {
     if (section) {
@@ -37,7 +39,7 @@ const Modal: React.FC<ModalProps> = ({ section, onClose, isDark }) => {
         <div className={`flex justify-between items-start mb-12 border-b pb-4 ${isDark ? 'border-[#2a2828]' : 'border-stone-200'}`}>
           <div className="flex items-center gap-4">
             {section.headerImage && (
-              <img src={section.headerImage} alt="" className="w-12 h-12 rounded-full object-cover flex-shrink-0" />
+              <img src={section.headerImage} alt="" className="w-12 h-12 rounded-full object-cover flex-shrink-0 cursor-pointer hover:opacity-90 transition-opacity" onClick={() => setLightboxSrc(section.headerImage!)} />
             )}
             <h2 className={`text-3xl md:text-4xl font-light tracking-tight ${isDark ? 'text-stone-100' : 'text-stone-800'}`}>
               {section.title}
@@ -56,6 +58,7 @@ const Modal: React.FC<ModalProps> = ({ section, onClose, isDark }) => {
           {section.content}
         </div>
       </div>
+      {lightboxSrc && <Lightbox src={lightboxSrc} alt="Andrea Kollóvá" onClose={() => setLightboxSrc(null)} />}
     </div>
   );
 };

@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { ChevronDown } from 'lucide-react';
+import Lightbox from './Lightbox';
 
 interface AboutContentProps {
   isEn: boolean;
@@ -8,6 +9,7 @@ interface AboutContentProps {
 
 const AboutContent = ({ isEn, isDark }: AboutContentProps) => {
   const [showFunFact, setShowFunFact] = useState(false);
+  const [lightboxSrc, setLightboxSrc] = useState<string | null>(null);
   return (
     <div className="space-y-6">
       <p className={`text-xl md:text-2xl font-light leading-relaxed ${isDark ? 'text-stone-100' : 'text-stone-800'}`}>
@@ -52,6 +54,7 @@ const AboutContent = ({ isEn, isDark }: AboutContentProps) => {
           </div>
         </div>
       )}
+      {lightboxSrc && <Lightbox src={lightboxSrc} alt="Andrea Kollóvá" onClose={() => setLightboxSrc(null)} />}
     </div>
   );
 };
