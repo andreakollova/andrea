@@ -98,8 +98,8 @@ export const getPortfolioSections = (lang: Language): SectionContent[] => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 items-center justify-items-center grayscale opacity-80">
           <div className="p-4">
             <img 
-              src="https://antiksolar.sk/cdn/shop/files/4324234_310x.png?v=1762264841" 
-              alt="Antik Solar" 
+              src="https://www.antik.sk/cdn/shop/files/4324234_310x.png?v=1762264841"
+              alt="Antik Telecom"
               className="h-16 object-contain hover:opacity-100 transition-opacity"
             />
           </div>

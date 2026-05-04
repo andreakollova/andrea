@@ -217,7 +217,29 @@ const SnakeCanvas: React.FC<SnakeCanvasProps> = ({ onEat, onInteractionStart, on
     };
 
     const handleMouseDown = (e: MouseEvent) => {
-        handlePointerInput(e.clientX, e.clientY);
+      const cx = e.clientX;
+      const cy = e.clientY;
+
+      // Click on food → trigger eat
+      const dxFood = cx - foodRef.current.x;
+      const dyFood = cy - foodRef.current.y;
+      if (Math.sqrt(dxFood * dxFood + dyFood * dyFood) < 24) {
+        if (!directionRef.current) onInteractionStart();
+        onEat();
+        spawnFood(canvasSizeRef.current.w, canvasSizeRef.current.h);
+        return;
+      }
+
+      // Click on menu icon → trigger menu open
+      const dxMenu = cx - menuPositionRef.current.x;
+      const dyMenu = cy - menuPositionRef.current.y;
+      if (Math.sqrt(dxMenu * dxMenu + dyMenu * dyMenu) < 40) {
+        if (!directionRef.current) onInteractionStart();
+        onMenuHit();
+        return;
+      }
+
+      handlePointerInput(cx, cy);
     };
 
     window.addEventListener('keydown', handleKeydown);
