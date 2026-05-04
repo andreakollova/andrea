@@ -360,11 +360,16 @@ const SnakeCanvas: React.FC<SnakeCanvasProps> = ({ onEat, onInteractionStart, on
       context.lineWidth = 1.5;
 
       if (isDark) {
-        // Crescent moon — arc with clipping fill
+        // Crescent moon — filled circle with destination-out cutout
         context.save();
         context.beginPath();
-        context.arc(sx, sy, 9, Math.PI * 0.2, Math.PI * 1.8);
-        context.stroke();
+        context.arc(sx, sy, 8, 0, Math.PI * 2);
+        context.fillStyle = color;
+        context.fill();
+        context.globalCompositeOperation = 'destination-out';
+        context.beginPath();
+        context.arc(sx + 5, sy - 3, 6.5, 0, Math.PI * 2);
+        context.fill();
         context.restore();
       } else {
         // Sun icon
