@@ -375,16 +375,17 @@ const SnakeCanvas: React.FC<SnakeCanvasProps> = ({ onEat, onInteractionStart, on
       context.lineWidth = 1.5;
 
       if (isDark) {
-        // Crescent moon — filled circle with destination-out cutout
+        // Stroke-only crescent moon: two arcs connecting at intersection points
+        // Outer circle R=9 at (sx,sy), inner circle r=7.5 at (sx+5, sy-3)
+        // Intersection angles (precomputed): outer start=0.435, outer end=-1.515
+        //   inner start=4.072, inner end=1.135
         context.save();
         context.beginPath();
-        context.arc(sx, sy, 8, 0, Math.PI * 2);
-        context.fillStyle = color;
-        context.fill();
-        context.globalCompositeOperation = 'destination-out';
-        context.beginPath();
-        context.arc(sx + 5, sy - 3, 6.5, 0, Math.PI * 2);
-        context.fill();
+        context.arc(sx, sy, 9, 0.435, -1.515, false);       // outer back arc (clockwise)
+        context.arc(sx + 5, sy - 3, 7.5, 4.072, 1.135, true); // inner concave arc (CCW)
+        context.strokeStyle = color;
+        context.lineWidth = 1.5;
+        context.stroke();
         context.restore();
       } else {
         // Sun icon
