@@ -27,11 +27,13 @@ const Modal: React.FC<ModalProps> = ({ section, onClose, isDark }) => {
 
   return (
     <div 
+      onClick={onClose}
       className={`fixed inset-0 z-50 flex items-center justify-center p-6 md:p-12 transition-all duration-700 ease-out ${
         isVisible ? `${isDark ? 'bg-[#151414]/90' : 'bg-stone-50/90'} backdrop-blur-sm opacity-100` : 'bg-transparent opacity-0 pointer-events-none'
       }`}
     >
-      <div 
+      <div
+        onClick={e => e.stopPropagation()}
         className={`w-full max-w-2xl transform transition-all duration-700 delay-100 ease-out ${
           isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
         }`}
