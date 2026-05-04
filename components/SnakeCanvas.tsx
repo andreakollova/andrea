@@ -26,6 +26,7 @@ const SnakeCanvas: React.FC<SnakeCanvasProps> = ({ onEat, onInteractionStart, on
   const canvasSizeRef = useRef<{ w: number; h: number }>({ w: 0, h: 0 });
   const menuPositionRef = useRef<Point>({ x: 0, y: 0 });
   const switchPositionRef = useRef<Point>({ x: 0, y: 0 });
+  const inSwitchZoneRef = useRef<boolean>(false); // prevent repeated toggle while snake stays in area
   
   // Helper to safely queue direction changes
   const queueDirection = (newDir: Direction) => {
@@ -121,6 +122,7 @@ const SnakeCanvas: React.FC<SnakeCanvasProps> = ({ onEat, onInteractionStart, on
     snakeRef.current = initialSnake;
     directionRef.current = null;
     directionQueueRef.current = [];
+    inSwitchZoneRef.current = false;
     
     updateMenuPosition(width);
     spawnFood(width, height);
@@ -363,11 +365,13 @@ const SnakeCanvas: React.FC<SnakeCanvasProps> = ({ onEat, onInteractionStart, on
         onMenuHit();
       }
 
-      // Collision with Switch (icon + text area)
+      // Collision with Switch — fire only on entry, not every frame
       const { x: swx, y: swy } = switchPositionRef.current;
-      if (head.x >= swx - 15 && head.x <= swx + 130 && head.y >= swy - 15 && head.y <= swy + 15) {
+      const nowInSwitch = head.x >= swx - 15 && head.x <= swx + 130 && head.y >= swy - 15 && head.y <= swy + 15;
+      if (nowInSwitch && !inSwitchZoneRef.current) {
         onToggleDark();
       }
+      inSwitchZoneRef.current = nowInSwitch;
     };
 
     const draw = (context: CanvasRenderingContext2D) => {
