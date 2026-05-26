@@ -122,7 +122,7 @@ export const getPortfolioSections = (lang: Language, isDark: boolean) => {
             <img
               src="/woeva-logo.png"
               alt="Woeva"
-              className={`h-16 object-contain hover:opacity-100 transition-opacity ${isDark ? 'mix-blend-screen' : 'mix-blend-multiply'}`}
+              className={`h-20 object-contain hover:opacity-100 transition-opacity ${isDark ? 'mix-blend-screen' : 'mix-blend-multiply'}`}
             />
           </div>
         </div>
