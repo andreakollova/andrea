@@ -154,7 +154,7 @@ const SnakeCanvas: React.FC<SnakeCanvasProps> = ({ onEat, onInteractionStart, on
         onAutoStart();
         queueDirection('UP');
       }
-    }, 5000);
+    }, 3000);
 
     return () => {
       if (autoStartTimerRef.current) {

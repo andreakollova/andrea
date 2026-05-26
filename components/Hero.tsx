@@ -23,10 +23,20 @@ const Hero: React.FC<HeroProps> = ({ hasStarted, isAutoPlaying, language, isDark
   return (
     <>
     {/* Auto-play hint — shown when snake started itself, outside fading container */}
-    <div className={`absolute bottom-6 left-0 right-0 z-10 flex flex-col items-center gap-2 pointer-events-none transition-opacity duration-700 ${isAutoPlaying ? 'opacity-100' : 'opacity-0'}`}>
-      <div className={`hidden md:flex items-center gap-2 animate-pulse ${isDark ? 'text-stone-400' : 'text-stone-500'}`}>
+    <div className={`absolute bottom-6 left-0 right-0 z-10 flex flex-col items-center gap-3 transition-opacity duration-700 ${isAutoPlaying ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
+      {/* Desktop: arrow keys */}
+      <div className={`hidden md:flex flex-col items-center gap-2 animate-pulse ${isDark ? 'text-stone-400' : 'text-stone-500'}`}>
+        <div className="flex flex-col items-center gap-1">
+          <kbd className={`w-7 h-7 flex items-center justify-center rounded text-xs border ${isDark ? 'border-stone-600 bg-stone-800' : 'border-stone-300 bg-white'} shadow-sm`}>↑</kbd>
+          <div className="flex gap-1">
+            <kbd className={`w-7 h-7 flex items-center justify-center rounded text-xs border ${isDark ? 'border-stone-600 bg-stone-800' : 'border-stone-300 bg-white'} shadow-sm`}>←</kbd>
+            <kbd className={`w-7 h-7 flex items-center justify-center rounded text-xs border ${isDark ? 'border-stone-600 bg-stone-800' : 'border-stone-300 bg-white'} shadow-sm`}>↓</kbd>
+            <kbd className={`w-7 h-7 flex items-center justify-center rounded text-xs border ${isDark ? 'border-stone-600 bg-stone-800' : 'border-stone-300 bg-white'} shadow-sm`}>→</kbd>
+          </div>
+        </div>
         <span className="text-xs font-light tracking-widest uppercase">{t.autoDesktop}</span>
       </div>
+      {/* Mobile */}
       <div className={`flex md:hidden items-center gap-2 animate-pulse ${isDark ? 'text-stone-400' : 'text-stone-500'}`}>
         <p className="text-xs font-light tracking-widest uppercase">{t.autoMobile}</p>
       </div>
