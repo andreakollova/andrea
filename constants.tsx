@@ -115,10 +115,10 @@ export const getPortfolioSections = (lang: Language, isDark: boolean) => {
             />
           </div>
           <div className="p-4">
-            <img 
-              src="https://sportqo.com/assets/brand_logo-93a425fd.png" 
-              alt="Sportqo" 
-              className="h-10 object-contain hover:opacity-100 transition-opacity"
+            <img
+              src="/woeva-logo.png"
+              alt="Woeva"
+              className={`h-10 object-contain hover:opacity-100 transition-opacity ${isDark ? 'invert' : ''}`}
             />
           </div>
         </div>
