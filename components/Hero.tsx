@@ -22,10 +22,10 @@ const Hero: React.FC<HeroProps> = ({ hasStarted, isAutoPlaying, language, isDark
   }, []);
 
   useEffect(() => {
-    if (hasStarted) { setShowHint(false); return; }
+    if (hasStarted || isMobile) { setShowHint(false); return; }
     const timer = setTimeout(() => setShowHint(true), 1000);
     return () => clearTimeout(timer);
-  }, [hasStarted]);
+  }, [hasStarted, isMobile]);
 
   return (
     <>

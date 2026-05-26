@@ -32,6 +32,7 @@ const SnakeCanvas: React.FC<SnakeCanvasProps> = ({ onEat, onInteractionStart, on
   const autoStartTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const userHasInteractedRef = useRef(false);
   const autoPlayingRef = useRef(false);
+  const interactionCountRef = useRef(0);
 
   // Helper to safely queue direction changes
   const queueDirection = (newDir: Direction) => {
@@ -145,6 +146,7 @@ const SnakeCanvas: React.FC<SnakeCanvasProps> = ({ onEat, onInteractionStart, on
   useEffect(() => {
     userHasInteractedRef.current = false;
     autoPlayingRef.current = false;
+    interactionCountRef.current = 0;
     if (autoStartTimerRef.current) clearTimeout(autoStartTimerRef.current);
 
     autoStartTimerRef.current = setTimeout(() => {
@@ -206,7 +208,10 @@ const SnakeCanvas: React.FC<SnakeCanvasProps> = ({ onEat, onInteractionStart, on
     const handleKeydown = (e: KeyboardEvent) => {
       userHasInteractedRef.current = true;
       if (autoStartTimerRef.current) { clearTimeout(autoStartTimerRef.current); autoStartTimerRef.current = null; }
-      if (autoPlayingRef.current) { autoPlayingRef.current = false; onUserTookControl(); }
+      if (autoPlayingRef.current) {
+        interactionCountRef.current += 1;
+        if (interactionCountRef.current >= 2) { autoPlayingRef.current = false; onUserTookControl(); }
+      }
       if (isPaused) return;
 
       const key = e.key;
@@ -272,8 +277,11 @@ const SnakeCanvas: React.FC<SnakeCanvasProps> = ({ onEat, onInteractionStart, on
         return;
       }
 
-      // Dismiss auto-play hint on any intentional touch
-      if (autoPlayingRef.current) { autoPlayingRef.current = false; onUserTookControl(); }
+      // Dismiss auto-play hint after 2 interactions
+      if (autoPlayingRef.current) {
+        interactionCountRef.current += 1;
+        if (interactionCountRef.current >= 2) { autoPlayingRef.current = false; onUserTookControl(); }
+      }
 
       // When paused (menu/modal open): let React handle everything else
       // (X button, nav items, modal close — all rely on React onClick)
@@ -312,7 +320,10 @@ const SnakeCanvas: React.FC<SnakeCanvasProps> = ({ onEat, onInteractionStart, on
     const handleMouseDown = (e: MouseEvent) => {
       userHasInteractedRef.current = true;
       if (autoStartTimerRef.current) { clearTimeout(autoStartTimerRef.current); autoStartTimerRef.current = null; }
-      if (autoPlayingRef.current) { autoPlayingRef.current = false; onUserTookControl(); }
+      if (autoPlayingRef.current) {
+        interactionCountRef.current += 1;
+        if (interactionCountRef.current >= 2) { autoPlayingRef.current = false; onUserTookControl(); }
+      }
       const cx = e.clientX;
       const cy = e.clientY;
 
