@@ -5,11 +5,12 @@ import { TRANSLATIONS } from '../constants';
 
 interface HeroProps {
   hasStarted: boolean;
+  isAutoPlaying: boolean;
   language: Language;
   isDark: boolean;
 }
 
-const Hero: React.FC<HeroProps> = ({ hasStarted, language, isDark }) => {
+const Hero: React.FC<HeroProps> = ({ hasStarted, isAutoPlaying, language, isDark }) => {
   const t = TRANSLATIONS[language];
   const [showHint, setShowHint] = useState(false);
 
@@ -20,6 +21,16 @@ const Hero: React.FC<HeroProps> = ({ hasStarted, language, isDark }) => {
   }, [hasStarted]);
 
   return (
+    <>
+    {/* Auto-play hint — shown when snake started itself, outside fading container */}
+    <div className={`absolute bottom-6 left-0 right-0 z-10 flex flex-col items-center gap-2 pointer-events-none transition-opacity duration-700 ${isAutoPlaying ? 'opacity-100' : 'opacity-0'}`}>
+      <div className={`hidden md:flex items-center gap-2 animate-pulse ${isDark ? 'text-stone-400' : 'text-stone-500'}`}>
+        <span className="text-xs font-light tracking-widest uppercase">{t.autoDesktop}</span>
+      </div>
+      <div className={`flex md:hidden items-center gap-2 animate-pulse ${isDark ? 'text-stone-400' : 'text-stone-500'}`}>
+        <p className="text-xs font-light tracking-widest uppercase">{t.autoMobile}</p>
+      </div>
+    </div>
     <div
       className={`absolute inset-0 z-10 flex flex-col items-center justify-center pointer-events-none transition-opacity duration-1000 ease-in-out ${
         hasStarted ? 'opacity-10' : 'opacity-100'
@@ -54,6 +65,7 @@ const Hero: React.FC<HeroProps> = ({ hasStarted, language, isDark }) => {
         </div>
       </div>
     </div>
+    </>
   );
 };
 

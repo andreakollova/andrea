@@ -8,6 +8,7 @@ import { SectionContent, Language } from './types';
 
 function App() {
   const [hasInteractionStarted, setHasInteractionStarted] = useState(false);
+  const [isAutoPlaying, setIsAutoPlaying] = useState(false);
   const [currentSection, setCurrentSection] = useState<SectionContent | null>(null);
   const [sectionIndex, setSectionIndex] = useState(0);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -30,6 +31,14 @@ function App() {
     }
   }, [hasInteractionStarted]);
 
+  const handleAutoStart = useCallback(() => {
+    setIsAutoPlaying(true);
+  }, []);
+
+  const handleUserTookControl = useCallback(() => {
+    setIsAutoPlaying(false);
+  }, []);
+
   const handleEat = useCallback(() => {
     const sections = getPortfolioSections(language, isDark);
     const sectionToShow = sections[sectionIndex];
@@ -49,6 +58,7 @@ function App() {
   const handleCloseMenu = useCallback(() => {
     setIsMenuOpen(false);
     setHasInteractionStarted(false); // Reset Hero Text
+    setIsAutoPlaying(false);
     setResetKey((prev) => prev + 1); // Reset Snake
   }, []);
 
@@ -69,6 +79,8 @@ function App() {
         isPaused={!!currentSection || isMenuOpen}
         onEat={handleEat}
         onInteractionStart={handleInteractionStart}
+        onAutoStart={handleAutoStart}
+        onUserTookControl={handleUserTookControl}
         onMenuHit={handleMenuHit}
         onToggleDark={handleToggleDark}
         isDark={isDark}
@@ -76,7 +88,7 @@ function App() {
       />
 
       {/* Hero Text Layer */}
-      <Hero hasStarted={hasInteractionStarted} language={language} isDark={isDark} />
+      <Hero hasStarted={hasInteractionStarted} isAutoPlaying={isAutoPlaying} language={language} isDark={isDark} />
 
       {/* Navigation Layer */}
       <Navigation

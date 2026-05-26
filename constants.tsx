@@ -16,6 +16,8 @@ export const TRANSLATIONS = {
     heroSubtitle: "Full-Stack Developer",
     heroDesktop: "MOVE THE SNAKE TO EXPLORE",
     heroMobile: "TAP TO EXPLORE",
+    autoDesktop: "USE ARROW KEYS TO STEER",
+    autoMobile: "TAP TO STEER",
     menu: {
       about: "About",
       skills: "Skills",
@@ -29,6 +31,8 @@ export const TRANSLATIONS = {
     heroSubtitle: "Full-Stack Developer",
     heroDesktop: "POHYBOM HADÍKA PRESKÚMAJ WEB",
     heroMobile: "KLIKNI PRE PRIESKUM",
+    autoDesktop: "ŠÍPKAMI OVLÁDAJ HADÍKA",
+    autoMobile: "ŤUKNI PRE OVLÁDANIE",
     menu: {
       about: "O mne",
       skills: "Zručnosti",

@@ -5,6 +5,8 @@ import { GAME_CONFIG } from '../constants';
 interface SnakeCanvasProps {
   onEat: () => void;
   onInteractionStart: () => void;
+  onAutoStart: () => void;
+  onUserTookControl: () => void;
   onMenuHit: () => void;
   onToggleDark: () => void;
   isPaused: boolean;
@@ -12,7 +14,7 @@ interface SnakeCanvasProps {
   resetKey: number;
 }
 
-const SnakeCanvas: React.FC<SnakeCanvasProps> = ({ onEat, onInteractionStart, onMenuHit, onToggleDark, isPaused, isDark, resetKey }) => {
+const SnakeCanvas: React.FC<SnakeCanvasProps> = ({ onEat, onInteractionStart, onAutoStart, onUserTookControl, onMenuHit, onToggleDark, isPaused, isDark, resetKey }) => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   
   // Game State Refs
@@ -29,6 +31,7 @@ const SnakeCanvas: React.FC<SnakeCanvasProps> = ({ onEat, onInteractionStart, on
   const inSwitchZoneRef = useRef<boolean>(false); // prevent repeated toggle while snake stays in area
   const autoStartTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const userHasInteractedRef = useRef(false);
+  const autoPlayingRef = useRef(false);
 
   // Helper to safely queue direction changes
   const queueDirection = (newDir: Direction) => {
@@ -141,11 +144,14 @@ const SnakeCanvas: React.FC<SnakeCanvasProps> = ({ onEat, onInteractionStart, on
   // Auto-start snake after 5 seconds of no interaction
   useEffect(() => {
     userHasInteractedRef.current = false;
+    autoPlayingRef.current = false;
     if (autoStartTimerRef.current) clearTimeout(autoStartTimerRef.current);
 
     autoStartTimerRef.current = setTimeout(() => {
       if (!userHasInteractedRef.current && directionRef.current === null) {
+        autoPlayingRef.current = true;
         onInteractionStart();
+        onAutoStart();
         queueDirection('UP');
       }
     }, 5000);
@@ -156,7 +162,7 @@ const SnakeCanvas: React.FC<SnakeCanvasProps> = ({ onEat, onInteractionStart, on
         autoStartTimerRef.current = null;
       }
     };
-  }, [resetKey, onInteractionStart]);
+  }, [resetKey, onInteractionStart, onAutoStart]);
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -200,6 +206,7 @@ const SnakeCanvas: React.FC<SnakeCanvasProps> = ({ onEat, onInteractionStart, on
     const handleKeydown = (e: KeyboardEvent) => {
       userHasInteractedRef.current = true;
       if (autoStartTimerRef.current) { clearTimeout(autoStartTimerRef.current); autoStartTimerRef.current = null; }
+      if (autoPlayingRef.current) { autoPlayingRef.current = false; onUserTookControl(); }
       if (isPaused) return;
 
       const key = e.key;
@@ -255,6 +262,7 @@ const SnakeCanvas: React.FC<SnakeCanvasProps> = ({ onEat, onInteractionStart, on
     const handleTouchStart = (e: TouchEvent) => {
       userHasInteractedRef.current = true;
       if (autoStartTimerRef.current) { clearTimeout(autoStartTimerRef.current); autoStartTimerRef.current = null; }
+      if (autoPlayingRef.current) { autoPlayingRef.current = false; onUserTookControl(); }
       const touch = e.touches[0];
       const tx = touch.clientX;
       const ty = touch.clientY;
@@ -300,6 +308,7 @@ const SnakeCanvas: React.FC<SnakeCanvasProps> = ({ onEat, onInteractionStart, on
     const handleMouseDown = (e: MouseEvent) => {
       userHasInteractedRef.current = true;
       if (autoStartTimerRef.current) { clearTimeout(autoStartTimerRef.current); autoStartTimerRef.current = null; }
+      if (autoPlayingRef.current) { autoPlayingRef.current = false; onUserTookControl(); }
       const cx = e.clientX;
       const cy = e.clientY;
 
