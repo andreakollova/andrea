@@ -272,6 +272,9 @@ const SnakeCanvas: React.FC<SnakeCanvasProps> = ({ onEat, onInteractionStart, on
         return;
       }
 
+      // Dismiss auto-play hint on any intentional touch
+      if (autoPlayingRef.current) { autoPlayingRef.current = false; onUserTookControl(); }
+
       // When paused (menu/modal open): let React handle everything else
       // (X button, nav items, modal close — all rely on React onClick)
       if (isPaused) return;
@@ -279,7 +282,6 @@ const SnakeCanvas: React.FC<SnakeCanvasProps> = ({ onEat, onInteractionStart, on
       // From here on — real game input, count as user interaction
       userHasInteractedRef.current = true;
       if (autoStartTimerRef.current) { clearTimeout(autoStartTimerRef.current); autoStartTimerRef.current = null; }
-      if (autoPlayingRef.current) { autoPlayingRef.current = false; onUserTookControl(); }
 
       // Menu icon — only when game is running (not when menu already open)
       const dxMenu = tx - menuPositionRef.current.x;
