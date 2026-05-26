@@ -30,7 +30,7 @@ const Hero: React.FC<HeroProps> = ({ hasStarted, isAutoPlaying, language, isDark
   return (
     <>
     {/* Auto-play hint — shown when snake started itself, outside fading container */}
-    <div className={`absolute bottom-20 md:bottom-6 left-0 right-0 z-10 flex flex-col items-center gap-3 transition-opacity duration-700 ${isAutoPlaying ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
+    <div className={`absolute bottom-32 md:bottom-6 left-0 right-0 z-10 flex flex-col items-center gap-3 transition-opacity duration-700 ${isAutoPlaying ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
       <div className={`flex flex-col items-center gap-2 animate-pulse ${isDark ? 'text-stone-400' : 'text-stone-500'}`}>
         {isMobile ? (
           /* Mobile: tap icon */
