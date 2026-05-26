@@ -34,8 +34,15 @@ const Hero: React.FC<HeroProps> = ({ hasStarted, isAutoPlaying, language, isDark
             <kbd className={`w-7 h-7 flex items-center justify-center rounded text-xs border ${isDark ? 'border-stone-600 bg-stone-800' : 'border-stone-300 bg-white'} shadow-sm`}>→</kbd>
           </div>
         </div>
-        <span className="text-xs font-light tracking-widest uppercase md:block hidden">{t.autoDesktop}</span>
-        <span className="text-xs font-light tracking-widest uppercase md:hidden">{t.autoMobile}</span>
+        <span className="text-xs font-light tracking-widest uppercase hidden md:block">{t.autoDesktop}</span>
+        <div className="flex md:hidden items-center gap-2">
+          <svg width="14" height="14" viewBox="0 0 18 18" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round">
+            <circle cx="9" cy="9" r="2.5" fill="currentColor" stroke="none"/>
+            <circle cx="9" cy="9" r="5.5"/>
+            <circle cx="9" cy="9" r="8" strokeOpacity="0.35"/>
+          </svg>
+          <span className="text-xs font-light tracking-widest uppercase">{t.autoMobile}</span>
+        </div>
       </div>
     </div>
     <div
