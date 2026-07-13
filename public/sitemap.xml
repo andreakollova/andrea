@@ -3,17 +3,20 @@
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://www.andreakollova.sk/</loc>
+    <lastmod>2026-07-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
     <image:image>
       <image:loc>https://www.andreakollova.sk/andrea-kollova.jpg</image:loc>
-      <image:title>Andrea Kollová</image:title>
-      <image:caption>Andrea Kollová — Full-Stack Developer &amp; Co-founder of Drixton</image:caption>
+      <image:title>Andrea Kollová — Full-Stack Developer z Bratislavy</image:title>
+      <image:caption>Andrea Kollová, full-stack developerka z Bratislavy a spoluzakladateľka Drixton Studio</image:caption>
+      <image:geo_location>Bratislava, Slovakia</image:geo_location>
     </image:image>
     <image:image>
       <image:loc>https://www.andreakollova.sk/andrea-kollova-hokej.jpg</image:loc>
-      <image:title>Andrea Kollová</image:title>
-      <image:caption>Andrea Kollová — Full-Stack Developer &amp; Co-founder of Drixton</image:caption>
+      <image:title>Andrea Kollová — developer a hokejistka</image:title>
+      <image:caption>Andrea Kollová — Full-Stack Developer, spoluzakladateľka Drixton Studio a hokejistka z Bratislavy</image:caption>
+      <image:geo_location>Bratislava, Slovakia</image:geo_location>
     </image:image>
   </url>
 </urlset>
