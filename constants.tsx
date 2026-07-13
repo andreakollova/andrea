@@ -103,9 +103,9 @@ export const getPortfolioSections = (lang: Language, isDark: boolean) => {
       title: isEn ? 'Selected Work' : 'Vybrané práce',
       type: 'work',
       content: (
-        <div className={`grid grid-cols-1 md:grid-cols-3 gap-12 items-center justify-items-center grayscale ${isDark ? 'invert opacity-70' : 'opacity-80'}`}>
+        <div className={`grid grid-cols-2 md:grid-cols-4 gap-12 items-center justify-items-center grayscale ${isDark ? 'invert opacity-70' : 'opacity-80'}`}>
           <div className="p-4">
-            <img 
+            <img
               src="https://www.antik.sk/cdn/shop/files/4324234_310x.png?v=1762264841"
               alt="Antik Telecom"
               className="h-16 object-contain hover:opacity-100 transition-opacity"
@@ -123,6 +123,13 @@ export const getPortfolioSections = (lang: Language, isDark: boolean) => {
               src="/woeva-logo.png"
               alt="Woeva"
               className={`h-20 object-contain hover:opacity-100 transition-opacity ${isDark ? 'mix-blend-screen' : 'mix-blend-multiply'}`}
+            />
+          </div>
+          <div className="p-4">
+            <img
+              src="/logocoduy.png"
+              alt="Coduy"
+              className={`h-16 object-contain hover:opacity-100 transition-opacity ${isDark ? 'mix-blend-screen' : 'mix-blend-multiply'}`}
             />
           </div>
         </div>
