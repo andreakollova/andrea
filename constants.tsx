@@ -175,11 +175,28 @@ export const getPortfolioSections = (lang: Language, isDark: boolean) => {
           <p className={`text-2xl font-light ${isDark ? 'text-stone-100' : 'text-stone-800'}`}>
             {isEn ? "Let's work together." : "Poďme spolupracovať."}
           </p>
-          <div className="flex flex-col space-y-4 items-start">
-            <a href="mailto:kollova@drixton.com" className={`text-lg transition-colors border-b border-transparent pb-1 ${isDark ? 'text-stone-300 hover:text-stone-100 hover:border-stone-100' : 'text-stone-500 hover:text-stone-800 hover:border-stone-800'}`}>
-              kollova@drixton.com
-            </a>
-            <div className="pt-4 flex items-center gap-3">
+          <div className="flex flex-col space-y-6 items-start">
+            <div className="flex items-center gap-6">
+              <a href="mailto:kollova@drixton.com" target="_blank" rel="noopener noreferrer" className={`transition-opacity hover:opacity-100 ${isDark ? 'opacity-60' : 'opacity-50'}`} aria-label="Email">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className={isDark ? 'text-stone-300' : 'text-stone-700'}>
+                  <rect width="20" height="16" x="2" y="4" rx="2" />
+                  <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+                </svg>
+              </a>
+              <a href="https://www.drixton.com/" target="_blank" rel="noopener noreferrer" className={`transition-opacity hover:opacity-100 ${isDark ? 'opacity-60' : 'opacity-50'}`} aria-label="Web">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className={isDark ? 'text-stone-300' : 'text-stone-700'}>
+                  <circle cx="12" cy="12" r="10" />
+                  <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20" />
+                  <path d="M2 12h20" />
+                </svg>
+              </a>
+              <a href="https://linkedin.com/in/andrea-kollov%C3%A1-318091289" target="_blank" rel="noopener noreferrer" className={`transition-opacity hover:opacity-100 ${isDark ? 'opacity-60' : 'opacity-50'}`} aria-label="LinkedIn">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" className={isDark ? 'text-stone-300' : 'text-stone-700'}>
+                  <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                </svg>
+              </a>
+            </div>
+            <div className="flex items-center gap-3">
                <span className="relative flex h-3 w-3">
                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
                  <span className="relative inline-flex rounded-full h-3 w-3 bg-green-500"></span>
