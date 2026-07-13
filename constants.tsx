@@ -176,7 +176,7 @@ export const getPortfolioSections = (lang: Language, isDark: boolean) => {
             {isEn ? "Let's work together." : "Poďme spolupracovať."}
           </p>
           <div className="flex flex-col space-y-6 items-start">
-            <div className="flex items-center gap-6">
+            <div className="flex items-center gap-4">
               <a href="mailto:kollova@drixton.com" target="_blank" rel="noopener noreferrer" className={`transition-opacity hover:opacity-100 ${isDark ? 'opacity-60' : 'opacity-50'}`} aria-label="Email">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className={isDark ? 'text-stone-300' : 'text-stone-700'}>
                   <rect width="20" height="16" x="2" y="4" rx="2" />
