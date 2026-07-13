@@ -10,13 +10,13 @@
       <image:loc>https://www.andreakollova.sk/andrea-kollova.jpg</image:loc>
       <image:title>Andrea Kollová — Full-Stack Developer z Bratislavy</image:title>
       <image:caption>Andrea Kollová, full-stack developerka z Bratislavy a spoluzakladateľka Drixton Studio</image:caption>
-      <image:geo_location>Bratislava, Slovakia</image:geo_location>
+      <image:geo_location>Slovakia</image:geo_location>
     </image:image>
     <image:image>
       <image:loc>https://www.andreakollova.sk/andrea-kollova-hokej.jpg</image:loc>
       <image:title>Andrea Kollová — developer a hokejistka</image:title>
-      <image:caption>Andrea Kollová — Full-Stack Developer, spoluzakladateľka Drixton Studio a hokejistka z Bratislavy</image:caption>
-      <image:geo_location>Bratislava, Slovakia</image:geo_location>
+      <image:caption>Andrea Kollová — Full-Stack Developer, spoluzakladateľka Drixton Studio a hokejistka</image:caption>
+      <image:geo_location>Slovakia</image:geo_location>
     </image:image>
   </url>
 </urlset>
