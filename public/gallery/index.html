@@ -142,12 +142,48 @@
         border-radius: 12px;
         background: #e7e5e4;
       }
+      .gallery-item {
+        cursor: pointer;
+      }
       .gallery-item img {
         width: 100%;
         height: auto;
         display: block;
         transition: transform 0.7s ease, filter 0.5s ease;
       }
+      .lightbox {
+        display: none;
+        position: fixed;
+        inset: 0;
+        z-index: 1000;
+        background: rgba(0,0,0,0.85);
+        backdrop-filter: blur(4px);
+        align-items: center;
+        justify-content: center;
+        padding: 40px;
+        cursor: pointer;
+      }
+      .lightbox.active { display: flex; }
+      .lightbox img {
+        max-height: 85vh;
+        max-width: 90vw;
+        object-fit: contain;
+        border-radius: 8px;
+        cursor: default;
+      }
+      .lightbox-close {
+        position: absolute;
+        top: 20px;
+        right: 24px;
+        color: rgba(255,255,255,0.6);
+        font-size: 32px;
+        background: none;
+        border: none;
+        cursor: pointer;
+        transition: color 0.3s;
+        line-height: 1;
+      }
+      .lightbox-close:hover { color: white; }
       .gallery-item:hover img {
         transform: scale(1.03);
       }
@@ -256,6 +292,25 @@
             </figure>
         </div>
     </main>
+
+    <div class="lightbox" id="lightbox" onclick="if(event.target===this)closeLightbox()">
+        <button class="lightbox-close" onclick="closeLightbox()">&times;</button>
+        <img id="lightbox-img" src="" alt="" />
+    </div>
+
+    <script>
+        document.querySelectorAll('.gallery-item img').forEach(img => {
+            img.addEventListener('click', () => {
+                document.getElementById('lightbox-img').src = img.src;
+                document.getElementById('lightbox-img').alt = img.alt;
+                document.getElementById('lightbox').classList.add('active');
+            });
+        });
+        function closeLightbox() {
+            document.getElementById('lightbox').classList.remove('active');
+        }
+        document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
+    </script>
 
     <footer>
         <p>&copy; 2026 <a href="/">Andrea Kollova</a></p>
