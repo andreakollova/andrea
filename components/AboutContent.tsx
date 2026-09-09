@@ -37,11 +37,15 @@ const AboutContent = ({ isEn, isDark }: AboutContentProps) => {
       </button>
       {showFunFact && (
         <div className={`fun-fact-enter rounded-xl p-4 flex gap-4 items-center ${isDark ? 'bg-[#212020]' : 'bg-stone-100'}`}>
-          <img
-            src="/andrea-kollova-hokej.jpg"
-            alt="Andrea Kollová"
-            className="w-28 h-28 rounded-lg object-cover flex-shrink-0"
-          />
+          <picture>
+            <source srcSet="/andrea-kollova-hokej.webp" type="image/webp" />
+            <img
+              src="/andrea-kollova-hokej.jpg"
+              alt="Andrea Kollova — hokejistka a Full-Stack Developer"
+              className="w-28 h-28 rounded-lg object-cover flex-shrink-0"
+              loading="lazy"
+            />
+          </picture>
           <div>
             <p className={`text-xs tracking-widest uppercase mb-2 ${isDark ? 'text-stone-400' : 'text-stone-400'}`}>
               {isEn ? 'Athlete Background' : 'Športová kariéra'}

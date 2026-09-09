@@ -125,6 +125,7 @@
     }
     </script>
 
+    <link rel="preload" as="image" href="/andrea-kollova.webp" type="image/webp" />
     <link rel="preload" as="image" href="/andrea-kollova.jpg" />
     <link rel="preload" as="image" href="/andrea-kollova-hokej.jpg" />
 
@@ -135,7 +136,11 @@
     <noscript>
       <h1>Andrea Kollová — Full-Stack Developer</h1>
       <p>Full-Stack Developer z Bratislavy. React, Next.js, React Native, TypeScript, Node.js, Python. Spoluzakladateľka Drixton Studio.</p>
-      <img src="/andrea-kollova.jpg" alt="Andrea Kollová — Full-Stack Developer z Bratislavy, spoluzakladateľka Drixton Studio" width="600" height="400" />
+      <picture>
+        <source srcset="/andrea-kollova-400.webp 400w, /andrea-kollova-800.webp 800w, /andrea-kollova.webp 1121w" type="image/webp" sizes="(max-width: 400px) 400px, (max-width: 800px) 800px, 1121px" />
+        <source srcset="/andrea-kollova-400.jpg 400w, /andrea-kollova-800.jpg 800w, /andrea-kollova.jpg 1121w" type="image/jpeg" sizes="(max-width: 400px) 400px, (max-width: 800px) 800px, 1121px" />
+        <img src="/andrea-kollova.jpg" alt="Andrea Kollova — Full-Stack Developer z Bratislavy, spoluzakladateľka Drixton Studio" width="600" height="600" loading="eager" />
+      </picture>
       <img src="/andrea-kollova-hokej.jpg" alt="Andrea Kollová — Full-Stack Developer a hokejistka z Bratislavy" width="600" height="400" />
     </noscript>
     <script type="module" src="/index.tsx"></script>
