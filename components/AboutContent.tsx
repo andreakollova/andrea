@@ -44,7 +44,7 @@ const AboutContent = ({ isEn, isDark }: AboutContentProps) => {
             <img
               src="/gallery/andrea-kollova-hockey-slovakia-national-team-square.jpg"
               alt="Andrea Kollova — hokejistka slovenskeho narodneho timu"
-              className="w-32 h-32 rounded-lg object-cover object-top flex-shrink-0"
+              className="w-32 h-32 rounded-lg object-cover object-center flex-shrink-0 aspect-square"
               loading="lazy"
             />
           </picture>
