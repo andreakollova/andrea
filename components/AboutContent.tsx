@@ -55,6 +55,14 @@ const AboutContent = ({ isEn, isDark }: AboutContentProps) => {
                 ? "During my studies, I actively competed at the international level as part of the Slovak national hockey team."
                 : "Počas štúdia som aktívne súťažila na medzinárodnej úrovni ako členka slovenského národného hokejového tímu."}
             </p>
+            <a
+              href="/gallery/"
+              className={`inline-flex items-center gap-2 text-[10px] tracking-widest uppercase mt-2 transition-colors ${
+                isDark ? 'text-stone-400 hover:text-stone-200' : 'text-stone-500 hover:text-stone-800'
+              }`}
+            >
+              {isEn ? 'View hockey gallery →' : 'Pozrieť hokejovú galériu →'}
+            </a>
           </div>
         </div>
       )}

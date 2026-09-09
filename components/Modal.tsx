@@ -43,7 +43,7 @@ const Modal: React.FC<ModalProps> = ({ section, onClose, isDark }) => {
             {section.headerImage && (
               <picture>
                 <source srcSet={section.headerImage.replace('.jpg', '-400.webp')} type="image/webp" />
-                <img src={section.headerImage} alt="Andrea Kollova" className="w-12 h-12 rounded-full object-cover flex-shrink-0 cursor-pointer hover:opacity-90 transition-opacity" onClick={() => setLightboxSrc(section.headerImage!)} />
+                <img src={section.headerImage} alt="Andrea Kollova" className="w-10 h-14 rounded-lg object-cover flex-shrink-0 cursor-pointer hover:opacity-90 transition-opacity" onClick={() => setLightboxSrc(section.headerImage!)} />
               </picture>
             )}
             <h2 className={`text-3xl md:text-4xl font-light tracking-tight ${isDark ? 'text-stone-100' : 'text-stone-800'}`}>
