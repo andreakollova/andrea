@@ -57,11 +57,12 @@ const AboutContent = ({ isEn, isDark }: AboutContentProps) => {
             </p>
             <a
               href="/gallery/"
-              className={`inline-flex items-center gap-2 text-[10px] tracking-widest uppercase mt-2 transition-colors ${
+              className={`group inline-flex items-center gap-2 text-[10px] tracking-widest uppercase mt-2 transition-all duration-300 hover:translate-x-2 ${
                 isDark ? 'text-stone-400 hover:text-stone-200' : 'text-stone-500 hover:text-stone-800'
               }`}
             >
-              {isEn ? 'View hockey gallery →' : 'Pozrieť hokejovú galériu →'}
+              <span className="group-hover:hidden">{isEn ? 'View hockey gallery →' : 'Pozrieť hokejovú galériu →'}</span>
+              <span className="hidden group-hover:inline">{isEn ? 'Haha, let\'s go →' : 'Haha, poďme na to →'}</span>
             </a>
           </div>
         </div>
