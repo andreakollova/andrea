@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useCallback } from 'react';
 import { ChevronDown } from 'lucide-react';
 import Lightbox from './Lightbox';
 
@@ -10,6 +10,8 @@ interface AboutContentProps {
 const AboutContent = ({ isEn, isDark }: AboutContentProps) => {
   const [showFunFact, setShowFunFact] = useState(false);
   const [lightboxSrc, setLightboxSrc] = useState<string | null>(null);
+  const [galleryHovered, setGalleryHovered] = useState(false);
+  const handleGalleryHover = useCallback(() => setGalleryHovered(true), []);
   return (
     <div className="space-y-6">
       <p className={`text-xl md:text-2xl font-light leading-relaxed ${isDark ? 'text-stone-100' : 'text-stone-800'}`}>
@@ -57,12 +59,20 @@ const AboutContent = ({ isEn, isDark }: AboutContentProps) => {
             </p>
             <a
               href="/gallery/"
-              className={`group inline-flex items-center gap-2 text-[10px] tracking-widest uppercase mt-2 transition-all duration-300 hover:translate-x-24 ${
-                isDark ? 'text-stone-400 hover:text-stone-200' : 'text-stone-500 hover:text-stone-800'
-              }`}
+              onMouseEnter={handleGalleryHover}
+              onClick={(e) => {
+                if (!galleryHovered) {
+                  e.preventDefault();
+                  setGalleryHovered(true);
+                }
+              }}
+              className={`inline-flex items-center gap-2 text-[10px] tracking-widest uppercase mt-2 transition-all duration-300 ${
+                galleryHovered ? 'translate-x-24' : ''
+              } ${isDark ? 'text-stone-400 hover:text-stone-200' : 'text-stone-500 hover:text-stone-800'}`}
             >
-              <span className="group-hover:hidden">{isEn ? 'View hockey gallery →' : 'Pozrieť hokejovú galériu →'}</span>
-              <span className="hidden group-hover:inline">{isEn ? 'Haha, let\'s go →' : 'Haha, poďme na to →'}</span>
+              {galleryHovered
+                ? (isEn ? 'Haha, let\'s go →' : 'Haha, poďme na to →')
+                : (isEn ? 'View hockey gallery →' : 'Pozrieť hokejovú galériu →')}
             </a>
           </div>
         </div>
