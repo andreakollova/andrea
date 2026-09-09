@@ -66,9 +66,10 @@ const AboutContent = ({ isEn, isDark }: AboutContentProps) => {
                   setGalleryHovered(true);
                 }
               }}
-              className={`inline-flex items-center gap-2 text-[10px] tracking-widest uppercase mt-2 transition-all duration-300 ${
-                galleryHovered ? 'translate-x-48' : ''
-              } ${isDark ? 'text-stone-400 hover:text-stone-200' : 'text-stone-500 hover:text-stone-800'}`}
+              style={galleryHovered ? { transform: 'translateX(192px)' } : undefined}
+              className={`inline-flex items-center gap-2 text-[10px] tracking-widest uppercase mt-2 ${
+                isDark ? 'text-stone-400 hover:text-stone-200' : 'text-stone-500 hover:text-stone-800'
+              }`}
             >
               {galleryHovered
                 ? (isEn ? 'Haha, let\'s go →' : 'Haha, poďme na to →')
