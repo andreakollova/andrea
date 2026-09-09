@@ -3,19 +3,55 @@
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://www.andreakollova.sk/</loc>
-    <lastmod>2026-07-13</lastmod>
+    <lastmod>2026-09-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
     <image:image>
       <image:loc>https://www.andreakollova.sk/andrea-kollova.jpg</image:loc>
-      <image:title>Andrea Kollová — Full-Stack Developer z Bratislavy</image:title>
-      <image:caption>Andrea Kollová, full-stack developerka z Bratislavy a spoluzakladateľka Drixton Studio</image:caption>
+      <image:title>Andrea Kollova — Full-Stack Developer z Bratislavy</image:title>
+      <image:caption>Andrea Kollova (Andrea Kollová), full-stack developerka z Bratislavy a spoluzakladateľka Drixton Studio</image:caption>
       <image:geo_location>Slovakia</image:geo_location>
     </image:image>
     <image:image>
       <image:loc>https://www.andreakollova.sk/andrea-kollova-hokej.jpg</image:loc>
-      <image:title>Andrea Kollová — developer a hokejistka</image:title>
-      <image:caption>Andrea Kollová — Full-Stack Developer, spoluzakladateľka Drixton Studio a hokejistka</image:caption>
+      <image:title>Andrea Kollova — developer a hokejistka</image:title>
+      <image:caption>Andrea Kollova — Full-Stack Developer, spoluzakladateľka Drixton Studio a hokejistka reprezentantka Slovenska</image:caption>
+      <image:geo_location>Slovakia</image:geo_location>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.andreakollova.sk/gallery/andrea-kollova-hockey-slovakia-national-team.jpg</image:loc>
+      <image:title>Andrea Kollova — hokejistka slovenskeho narodneho timu</image:title>
+      <image:caption>Andrea Kollova (c. 18) v drese slovenskeho narodneho hokejoveho timu na medzinarodnom turnaji IIHF</image:caption>
+      <image:geo_location>Slovakia</image:geo_location>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.andreakollova.sk/gallery/andrea-kollova-hockey-slovakia-vs-denmark.jpg</image:loc>
+      <image:title>Andrea Kollova — Slovensko vs Dansko hokej</image:title>
+      <image:caption>Andrea Kollova (c. 18) v zapase Slovensko vs Dansko na IIHF World Championship</image:caption>
+      <image:geo_location>Slovakia</image:geo_location>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.andreakollova.sk/gallery/andrea-kollova-hockey-goal-scoring.jpg</image:loc>
+      <image:title>Andrea Kollova — gol v hokejovom zapase</image:title>
+      <image:caption>Andrea Kollova (c. 11) strela gol v hokejovom zapase — reprezentantka Slovenska v zenskom hokeji</image:caption>
+      <image:geo_location>Slovakia</image:geo_location>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.andreakollova.sk/gallery/andrea-kollova-hockey-iihf-award-ceremony.jpg</image:loc>
+      <image:title>Andrea Kollova — ocenenie na IIHF turnaji</image:title>
+      <image:caption>Andrea Kollova (c. 18) pri preberani ocenenia na IIHF World Championship — reprezentantka Slovenska</image:caption>
+      <image:geo_location>Slovakia</image:geo_location>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.andreakollova.sk/gallery/andrea-kollova-hockey-iihf-world-championship.jpg</image:loc>
+      <image:title>Andrea Kollova — IIHF World Championship</image:title>
+      <image:caption>Andrea Kollova (c. 19) v akcii na IIHF World Championship za slovensky narodny tim — hokejistka a full-stack developer</image:caption>
+      <image:geo_location>Slovakia</image:geo_location>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.andreakollova.sk/gallery/andrea-kollova-hockey-slovakia-vs-germany.jpg</image:loc>
+      <image:title>Andrea Kollova — Slovensko vs Nemecko hokej</image:title>
+      <image:caption>Andrea Kollova (c. 18) v zapase Slovensko vs Nemecko na IIHF turnaji — zensky hokej</image:caption>
       <image:geo_location>Slovakia</image:geo_location>
     </image:image>
   </url>
