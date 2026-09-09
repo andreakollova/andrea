@@ -38,9 +38,9 @@ const AboutContent = ({ isEn, isDark }: AboutContentProps) => {
       {showFunFact && (
         <div className={`fun-fact-enter rounded-xl p-4 flex gap-4 items-center ${isDark ? 'bg-[#212020]' : 'bg-stone-100'}`}>
           <picture>
-            <source srcSet="/gallery/andrea-kollova-hockey-slovakia-national-team.webp" type="image/webp" />
+            <source srcSet="/gallery/andrea-kollova-hockey-slovakia-national-team-square.webp" type="image/webp" />
             <img
-              src="/gallery/andrea-kollova-hockey-slovakia-national-team.jpg"
+              src="/gallery/andrea-kollova-hockey-slovakia-national-team-square.jpg"
               alt="Andrea Kollova — hokejistka slovenskeho narodneho timu"
               className="w-32 h-32 rounded-lg object-cover object-top flex-shrink-0"
               loading="lazy"
