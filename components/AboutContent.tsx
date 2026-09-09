@@ -57,7 +57,7 @@ const AboutContent = ({ isEn, isDark }: AboutContentProps) => {
             </p>
             <a
               href="/gallery/"
-              className={`group inline-flex items-center gap-2 text-[10px] tracking-widest uppercase mt-2 transition-all duration-300 hover:translate-x-2 ${
+              className={`group inline-flex items-center gap-2 text-[10px] tracking-widest uppercase mt-2 transition-all duration-300 hover:translate-x-5 ${
                 isDark ? 'text-stone-400 hover:text-stone-200' : 'text-stone-500 hover:text-stone-800'
               }`}
             >
