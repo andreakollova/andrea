@@ -29,7 +29,7 @@ const Lightbox: React.FC<LightboxProps> = ({ src, alt, onClose }) => {
       <img
         src={src}
         alt={alt}
-        className="max-h-[90vh] max-w-[90vw] rounded-xl object-contain shadow-2xl cursor-default"
+        className="max-h-[65vh] max-w-[65vw] rounded-xl object-contain shadow-2xl cursor-default"
         onClick={e => e.stopPropagation()}
       />
     </div>
