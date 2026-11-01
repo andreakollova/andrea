@@ -106,16 +106,16 @@ export const getPortfolioSections = (lang: Language, isDark: boolean) => {
         <div className={`grid grid-cols-2 md:grid-cols-3 gap-8 md:gap-12 items-center justify-items-center ${isDark ? 'opacity-70' : 'opacity-80'}`}>
           <div className="p-4">
             <img
-              src="/hockey-beats-logo.png"
-              alt="Hockey Beats"
-              className={`h-14 object-contain hover:opacity-100 transition-opacity ${isDark ? 'invert' : ''}`}
+              src="https://www.antik.sk/cdn/shop/files/4324234_310x.png?v=1762264841"
+              alt="Antik Telecom"
+              className={`h-16 object-contain hover:opacity-100 transition-opacity grayscale ${isDark ? 'invert' : ''}`}
             />
           </div>
           <div className="p-4">
             <img
-              src="https://www.antik.sk/cdn/shop/files/4324234_310x.png?v=1762264841"
-              alt="Antik Telecom"
-              className={`h-16 object-contain hover:opacity-100 transition-opacity grayscale ${isDark ? 'invert' : ''}`}
+              src="/hockey-beats-logo.png"
+              alt="Hockey Beats"
+              className={`h-14 object-contain hover:opacity-100 transition-opacity ${isDark ? 'invert' : ''}`}
             />
           </div>
           <div className="p-4">
