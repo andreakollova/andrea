@@ -115,7 +115,7 @@ export const getPortfolioSections = (lang: Language, isDark: boolean) => {
             <img
               src="/hockey-beats-logo.png"
               alt="Hockey Beats"
-              className={`h-14 object-contain hover:opacity-100 transition-opacity ${isDark ? 'invert' : ''}`}
+              className={`h-14 object-contain hover:opacity-100 transition-opacity ${isDark ? 'invert' : 'opacity-60'}`}
             />
           </div>
           <div className="p-4">
@@ -136,14 +136,14 @@ export const getPortfolioSections = (lang: Language, isDark: boolean) => {
             <img
               src={isDark ? '/logocoduy.png' : '/logocoduy-dark.png'}
               alt="Coduy"
-              className={`h-16 object-contain hover:opacity-100 transition-opacity grayscale ${isDark ? 'invert' : ''}`}
+              className={`h-12 object-contain hover:opacity-100 transition-opacity grayscale ${isDark ? 'invert' : ''}`}
             />
           </div>
           <div className="p-4">
             <img
               src="/robotika24-logo.png"
               alt="Robotika24"
-              className={`h-14 object-contain hover:opacity-100 transition-opacity ${isDark ? 'invert' : ''}`}
+              className={`h-14 object-contain hover:opacity-100 transition-opacity ${isDark ? 'invert' : 'opacity-60'}`}
             />
           </div>
         </div>
