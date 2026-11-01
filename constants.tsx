@@ -136,7 +136,7 @@ export const getPortfolioSections = (lang: Language, isDark: boolean) => {
             <img
               src={isDark ? '/logocoduy.png' : '/logocoduy-dark.png'}
               alt="Coduy"
-              className={`h-12 object-contain hover:opacity-100 transition-opacity grayscale ${isDark ? 'invert' : ''}`}
+              className={`h-12 object-contain hover:opacity-100 transition-opacity ${isDark ? '' : 'grayscale'}`}
             />
           </div>
           <div className="p-4">
